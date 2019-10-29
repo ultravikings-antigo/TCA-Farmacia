@@ -3,6 +3,7 @@ package sample.modelDAO;
 import java.util.ArrayList;
 
 public class SalesmanDAOimpl implements SalesmanDAO {
+
     @Override
     public SalesmanDAO insert(String name, Float salary, String address, String telephone, String cpf, String email, Boolean admin) {
         return null;
@@ -14,7 +15,7 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     }
 
     @Override
-    public boolean exclude(int id) {
+    public boolean delete(int id) {
         return false;
     }
 

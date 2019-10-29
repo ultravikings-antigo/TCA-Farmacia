@@ -18,7 +18,7 @@ public class PurchaseDAOimpl implements PurchaseDAO {
     }
 
     @Override
-    public boolean exclude(int id) {
+    public boolean delete(int id) {
         return false;
     }
 

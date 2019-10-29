@@ -19,7 +19,7 @@ public class SalesDAOimpl implements SalesDAO{
     }
 
     @Override
-    public boolean exclude(int id) {
+    public boolean delete(int id) {
         return false;
     }
 

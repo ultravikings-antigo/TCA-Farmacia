@@ -16,7 +16,7 @@ public class ClientDAOimpl implements ClientDAO{
     }
 
     @Override
-    public boolean exclude(String name, int id) {
+    public boolean delete(String name, int id) {
         return false;
     }
 

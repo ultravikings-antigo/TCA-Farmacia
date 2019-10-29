@@ -12,6 +12,6 @@ public interface SalesDAO {
 
     Purchase insert (Client client, Salesman salesman, Date date, Float totalValue);
     Purchase edit (Client client, Salesman salesman, Date date, Float totalValue);
-    boolean exclude (int id);
+    boolean delete(int id);
     ArrayList<Purchase> list();
 }

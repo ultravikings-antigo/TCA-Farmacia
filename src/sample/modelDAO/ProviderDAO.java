@@ -6,6 +6,6 @@ public interface ProviderDAO {
 
     ProviderDAO insert (String name, String telephone, String email);
     ProviderDAO edit (String name, String telephone, String email);
-    boolean exclude (String name, int id);
+    boolean delete(String name, int id);
     ArrayList<ProviderDAO> list();
 }
