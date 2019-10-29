@@ -13,7 +13,7 @@ public class PurchaseDAOimpl implements PurchaseDAO {
     }
 
     @Override
-    public Purchase edit(Provider provider, Date date, Float totalValue) {
+    public Purchase update(Provider provider, Date date, Float totalValue) {
         return null;
     }
 

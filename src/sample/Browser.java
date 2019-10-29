@@ -9,6 +9,7 @@ import java.io.IOException;
 public class Browser {
 
     public static final String BASE = "/view/base.fxml";
+    public static final String LOGIN = "/view/login.fxml";
 
     private static Base controller;
 

@@ -14,7 +14,7 @@ public class SalesDAOimpl implements SalesDAO{
     }
 
     @Override
-    public Purchase edit(Client client, Salesman salesman, Date date, Float totalValue) {
+    public Purchase update(Client client, Salesman salesman, Date date, Float totalValue) {
         return null;
     }
 

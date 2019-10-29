@@ -34,7 +34,7 @@ public class Main extends Application {
         Base controller = loader.getController();
 
         Browser.setController(controller);
-        Browser.loadWindows(Browser.BASE);
+        Browser.loadWindows(Browser.LOGIN);
 
         return mainPane;
     }

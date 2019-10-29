@@ -11,7 +11,7 @@ import java.util.Date;
 public interface SalesDAO {
 
     Purchase insert (Client client, Salesman salesman, Date date, Float totalValue);
-    Purchase edit (Client client, Salesman salesman, Date date, Float totalValue);
+    Purchase update(Client client, Salesman salesman, Date date, Float totalValue);
     boolean delete(int id);
     ArrayList<Purchase> list();
 }

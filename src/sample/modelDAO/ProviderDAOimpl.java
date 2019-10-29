@@ -9,7 +9,7 @@ public class ProviderDAOimpl implements ProviderDAO {
     }
 
     @Override
-    public ProviderDAO edit(String name, String telephone, String email) {
+    public ProviderDAO update(String name, String telephone, String email) {
         return null;
     }
 

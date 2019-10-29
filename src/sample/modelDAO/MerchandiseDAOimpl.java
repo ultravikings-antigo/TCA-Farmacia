@@ -11,7 +11,7 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
     }
 
     @Override
-    public Client edit(String name, String address, String cpf, String telephone, String email) {
+    public Client update(String name, String address, String cpf, String telephone, String email) {
         return null;
     }
 

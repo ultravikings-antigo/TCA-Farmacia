@@ -10,7 +10,7 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     }
 
     @Override
-    public SalesmanDAO edit(String name, Float salary, String address, String telephone, String cpf, String email, Boolean admin) {
+    public SalesmanDAO update(String name, Float salary, String address, String telephone, String cpf, String email, Boolean admin) {
         return null;
     }
 
