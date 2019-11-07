@@ -1,8 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Login">
-
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Login">
+   <children>
+      <JFXTextField fx:id="tfUser" focusColor="BLACK" labelFloat="true" layoutX="515.0" layoutY="345.0" prefHeight="30.0" prefWidth="250.0" promptText="Usuario" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXPasswordField fx:id="tfPassword" focusColor="BLACK" labelFloat="true" layoutX="515.0" layoutY="445.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" />
+      <JFXButton layoutX="665.0" layoutY="513.0" mnemonicParsing="false" onAction="#actionLogin" prefHeight="45.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Login">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00f38d" />
+                  <Stop color="#009eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="515.0" layoutY="528.0" onMouseClicked="#actionRegister" text="Cadastrar Nova Conta">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="565.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="471.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="471.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/key%20(1).png" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtUser" fill="#f81a1a" layoutX="794.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtPassword" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+   </children>
 </AnchorPane>

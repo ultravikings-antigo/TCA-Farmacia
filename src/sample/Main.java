@@ -16,10 +16,9 @@ public class Main extends Application {
 
         Pane root = loadMainPane();
         stage.setScene(new Scene(root, 1280, 720));
-        //stage.initStyle(StageStyle.TRANSPARENT);
-
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.show();
-        //stage.setResizable(false);
     }
 
     private Pane loadMainPane() throws IOException {

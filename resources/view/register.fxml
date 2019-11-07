@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Register">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="575.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/home.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/telephone%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/id-card.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/email%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/padlock.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="481.0" layoutY="610.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/padlock.png" />
+         </image>
+      </ImageView>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="250.0" prefHeight="30.0" prefWidth="250.0" promptText="Nome" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="310.0" prefHeight="30.0" prefWidth="250.0" promptText="Endereço" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="370.0" prefHeight="30.0" prefWidth="250.0" promptText="Telefone" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="430.0" prefHeight="30.0" prefWidth="250.0" promptText="Cpf" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="490.0" prefHeight="30.0" prefWidth="250.0" promptText="Email" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXButton layoutX="675.0" layoutY="654.0" mnemonicParsing="false" onAction="#actionRegister" prefHeight="45.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Cadastrar">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00f38d" />
+                  <Stop color="#009eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="425.0" layoutY="654.0" mnemonicParsing="false" onAction="#actionBack" prefHeight="45.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Voltar">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00f38d" />
+                  <Stop color="#009eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXPasswordField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="550.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXPasswordField>
+      <JFXPasswordField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="610.0" prefHeight="30.0" prefWidth="250.0" promptText="Repetir Senha" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXPasswordField>
+      <Text fx:id="txtUser" fill="#f81a1a" layoutX="804.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtAddress" fill="#f81a1a" layoutX="804.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtTelephone" fill="#f81a1a" layoutX="804.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtCpf" fill="#f81a1a" layoutX="804.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtEmail" fill="#f81a1a" layoutX="804.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtPassword1" fill="#f81a1a" layoutX="804.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtPassword2" fill="#f81a1a" layoutX="804.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+   </children>
+</AnchorPane>

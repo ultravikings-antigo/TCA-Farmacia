@@ -10,7 +10,7 @@ public class Browser {
 
     public static final String BASE = "/view/base.fxml";
     public static final String LOGIN = "/view/login.fxml";
-
+    public static final String REGISTER = "/view/register.fxml";
     private static Base controller;
 
     public static void setController(Base controller) {
