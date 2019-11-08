@@ -19,7 +19,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor></JFXTextField>
       <JFXPasswordField fx:id="tfPassword" focusColor="BLACK" labelFloat="true" layoutX="515.0" layoutY="445.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" />
-      <JFXButton layoutX="665.0" layoutY="513.0" mnemonicParsing="false" onAction="#actionLogin" prefHeight="45.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Login">
+      <JFXButton layoutX="640.0" layoutY="514.0" mnemonicParsing="false" onAction="#actionLogin" prefHeight="45.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Login">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -32,7 +32,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="515.0" layoutY="528.0" onMouseClicked="#actionRegister" text="Cadastrar Nova Conta">
+      <Label layoutX="471.0" layoutY="529.0" onMouseClicked="#actionRegister" text="Cadastrar Nova Conta">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -54,5 +54,6 @@
       </ImageView>
       <Text fx:id="txtUser" fill="#f81a1a" layoutX="794.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtPassword" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtError" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Usuario ou Senha Invalido" visible="false" />
    </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ public class Salesman {
     private String address;
     private String telephone;
     private String cpf;
+    private String password;
     private String email;
     private Boolean admin;
 

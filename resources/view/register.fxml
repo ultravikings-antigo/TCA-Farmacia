@@ -53,27 +53,27 @@
             <Image url="@../images/padlock.png" />
          </image>
       </ImageView>
-      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="250.0" prefHeight="30.0" prefWidth="250.0" promptText="Nome" unFocusColor="BLACK">
+      <JFXTextField fx:id="tfName" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="250.0" prefHeight="30.0" prefWidth="250.0" promptText="Nome" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="310.0" prefHeight="30.0" prefWidth="250.0" promptText="Endereço" unFocusColor="BLACK">
+      <JFXTextField fx:id="tfAddress" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="310.0" prefHeight="30.0" prefWidth="250.0" promptText="Endereço" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="370.0" prefHeight="30.0" prefWidth="250.0" promptText="Telefone" unFocusColor="BLACK">
+      <JFXTextField fx:id="tfTelephone" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="370.0" prefHeight="30.0" prefWidth="250.0" promptText="Telefone" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="430.0" prefHeight="30.0" prefWidth="250.0" promptText="Cpf" unFocusColor="BLACK">
+      <JFXTextField fx:id="tfCpf" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="430.0" prefHeight="30.0" prefWidth="250.0" promptText="Cpf" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="490.0" prefHeight="30.0" prefWidth="250.0" promptText="Email" unFocusColor="BLACK">
+      <JFXTextField fx:id="tfEmail" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="490.0" prefHeight="30.0" prefWidth="250.0" promptText="Email" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -104,22 +104,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXPasswordField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="550.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" unFocusColor="BLACK">
+      <JFXPasswordField fx:id="tfPassword1" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="550.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXPasswordField>
-      <JFXPasswordField focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="610.0" prefHeight="30.0" prefWidth="250.0" promptText="Repetir Senha" unFocusColor="BLACK">
+      <JFXPasswordField fx:id="tfPassword2" focusColor="BLACK" labelFloat="true" layoutX="525.0" layoutY="610.0" prefHeight="30.0" prefWidth="250.0" promptText="Repetir Senha" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXPasswordField>
-      <Text fx:id="txtUser" fill="#f81a1a" layoutX="804.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
-      <Text fx:id="txtAddress" fill="#f81a1a" layoutX="804.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
-      <Text fx:id="txtTelephone" fill="#f81a1a" layoutX="804.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
-      <Text fx:id="txtCpf" fill="#f81a1a" layoutX="804.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
-      <Text fx:id="txtEmail" fill="#f81a1a" layoutX="804.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
-      <Text fx:id="txtPassword1" fill="#f81a1a" layoutX="804.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
-      <Text fx:id="txtPassword2" fill="#f81a1a" layoutX="804.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" />
+      <Text fx:id="txtName" fill="#f81a1a" layoutX="804.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtAddress" fill="#f81a1a" layoutX="804.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtTelephone" fill="#f81a1a" layoutX="804.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtCpf" fill="#f81a1a" layoutX="804.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtEmail" fill="#f81a1a" layoutX="804.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtPassword1" fill="#f81a1a" layoutX="804.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtPassword2" fill="#f81a1a" layoutX="804.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
+      <Text fx:id="txtTelephoneError" fill="#f81a1a" layoutX="804.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de Telefone Invalido" visible="false" />
    </children>
 </AnchorPane>

@@ -1,15 +1,17 @@
 package sample.modelDAO;
 
+import sample.model.Provider;
+
 import java.util.ArrayList;
 
 public class ProviderDAOimpl implements ProviderDAO {
     @Override
-    public ProviderDAO insert(String name, String telephone, String email) {
+    public Provider insert(String name, String telephone, String email) {
         return null;
     }
 
     @Override
-    public ProviderDAO update(String name, String telephone, String email) {
+    public Provider update(String name, String telephone, String email) {
         return null;
     }
 
@@ -19,7 +21,7 @@ public class ProviderDAOimpl implements ProviderDAO {
     }
 
     @Override
-    public ArrayList<ProviderDAO> list() {
+    public ArrayList<Provider> list() {
         return null;
     }
 }
