@@ -5,7 +5,11 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import sample.Browser;
+import sample.model.Control;
+import sample.modelDAO.SalesmanDAO;
+import sample.modelDAO.SalesmanDAOimpl;
 
+import java.sql.SQLException;
 
 
 public class Register {
@@ -55,6 +59,9 @@ public class Register {
     @FXML
     private Text txtTelephoneError;
 
+    @FXML
+    private Text txtCpfError;
+
 
     @FXML
     public void actionBack(){
@@ -62,7 +69,7 @@ public class Register {
     }
 
     @FXML
-    public void actionRegister(){
+    public void actionRegister() throws SQLException {
         if (tfName.getText().equals("")){
             txtName.setVisible(true);
         }else{
@@ -83,19 +90,28 @@ public class Register {
                             txtCpf.setVisible(true);
                         }else{
                             txtCpf.setVisible(false);
-                            if (tfEmail.getText().equals("")){
-                                txtEmail.setVisible(true);
-                            }else{
-                                txtEmail.setVisible(false);
-                                if (tfPassword1.getText().equals("")){
-                                    txtPassword1.setVisible(true);
-                                }else{
-                                    txtPassword1.setVisible(false);
 
-                                    if (tfPassword2.getText().equals("")){
-                                        txtPassword2.setVisible(true);
+                            if (!Control.getInstance().validCpf(tfCpf.getText())){
+                                txtCpfError.setVisible(true);
+                            }else{
+                                txtCpfError.setVisible(false);
+                                if (tfEmail.getText().equals("")){
+                                    txtEmail.setVisible(true);
+                                }else{
+                                    txtEmail.setVisible(false);
+                                    if (tfPassword1.getText().equals("")){
+                                        txtPassword1.setVisible(true);
                                     }else{
-                                        txtPassword2.setVisible(false);
+                                        txtPassword1.setVisible(false);
+
+                                        if (tfPassword2.getText().equals("")){
+                                            txtPassword2.setVisible(true);
+                                        }else{
+                                            txtPassword2.setVisible(false);
+
+                                            Control.getInstance().register(tfName.getText(),tfAddress.getText(),tfTelephone.getText(),tfCpf.getText(),tfEmail.getText(),tfPassword1.getText());
+                                            System.out.println("Usuario Cadastrado");
+                                        }
                                     }
                                 }
                             }

@@ -12,23 +12,25 @@ public class Salesman {
     private String email;
     private Boolean admin;
 
-    public Salesman(int id, String name, Float salary, String address, String telephone, String cpf, String email, Boolean admin) {
+    public Salesman(int id, String name, Float salary, String address, String telephone, String cpf, String password, String email, Boolean admin) {
         this.id = id;
         this.name = name;
         this.salary = salary;
         this.address = address;
         this.telephone = telephone;
         this.cpf = cpf;
+        this.password = password;
         this.email = email;
         this.admin = admin;
     }
 
-    public Salesman(String name, Float salary, String address, String telephone, String cpf, String email, Boolean admin) {
+    public Salesman(String name, Float salary, String address, String telephone, String cpf, String password, String email, Boolean admin) {
         this.name = name;
         this.salary = salary;
         this.address = address;
         this.telephone = telephone;
         this.cpf = cpf;
+        this.password = password;
         this.email = email;
         this.admin = admin;
     }
@@ -81,6 +83,14 @@ public class Salesman {
         this.cpf = cpf;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -99,13 +109,14 @@ public class Salesman {
 
     @Override
     public String toString() {
-        return "SalesmanDAO{" +
+        return "Salesman{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 ", address='" + address + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", cpf='" + cpf + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", admin=" + admin +
                 '}';

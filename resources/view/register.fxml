@@ -122,5 +122,6 @@
       <Text fx:id="txtPassword1" fill="#f81a1a" layoutX="804.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtPassword2" fill="#f81a1a" layoutX="804.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtTelephoneError" fill="#f81a1a" layoutX="804.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de Telefone Invalido" visible="false" />
+      <Text fx:id="txtCpfError" fill="#f81a1a" layoutX="804.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cpf Invalido" visible="false" />
    </children>
 </AnchorPane>
