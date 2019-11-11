@@ -11,6 +11,10 @@ public class Browser {
     public static final String BASE = "/view/base.fxml";
     public static final String LOGIN = "/view/login.fxml";
     public static final String REGISTER = "/view/register.fxml";
+    public static final String MENU = "/view/menu.fxml";
+    public static final String SALES = "/view/sales.fxml";
+    public static final String STORAGE = "/view/storage.fxml";
+
     private static Base controller;
 
     public static void setController(Base controller) {

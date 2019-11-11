@@ -55,5 +55,13 @@
       <Text fx:id="txtUser" fill="#f81a1a" layoutX="794.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtPassword" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtError" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Usuario ou Senha Invalido" visible="false" />
+      <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="1215.0" layoutY="14.0" onMouseClicked="#actionBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/left-arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

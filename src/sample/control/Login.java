@@ -49,7 +49,7 @@ public class Login {
                 if (s == null){
                     txtError.setVisible(true);
                 }else{
-                    //navegar para tela principal dependendo se ele for adm ou não
+                    Browser.loadWindows(Browser.MENU);
                 }
             }
         }
