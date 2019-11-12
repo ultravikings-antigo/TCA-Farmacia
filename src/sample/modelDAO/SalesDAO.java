@@ -1,17 +1,15 @@
 package sample.modelDAO;
 
-import sample.model.Client;
-import sample.model.Provider;
-import sample.model.Purchase;
-import sample.model.Salesman;
+import sample.model.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
 public interface SalesDAO {
 
-    Purchase insert (Client client, Salesman salesman, Date date, Float totalValue);
-    Purchase update(Client client, Salesman salesman, Date date, Float totalValue);
+    Sales insert (Client client, Salesman salesman, Date date, Float totalValue) throws SQLException;
+    Sales update(Client client, Salesman salesman, Date date, Float totalValue);
     boolean delete(int id);
-    ArrayList<Purchase> list();
+    ArrayList<Sales> list();
 }

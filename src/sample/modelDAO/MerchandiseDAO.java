@@ -1,14 +1,16 @@
 package sample.modelDAO;
 
 import sample.model.Client;
+import sample.model.Merchandise;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface MerchandiseDAO {
 
-    Client insert (String name, String address, String cpf, String telephone, String email);
-    Client update(String name, String address, String cpf, String telephone, String email);
+    Merchandise insert (String name, int amount,Float price);
+    Merchandise update(String name, int amount,Float price);
     boolean delete(String name, int id);
-    ArrayList<Client> list();
+    ArrayList<Merchandise> list() throws SQLException;
 
 }

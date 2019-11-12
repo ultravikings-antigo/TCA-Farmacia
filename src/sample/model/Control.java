@@ -107,4 +107,14 @@ public class Control {
         }
 
     }
+
+    public ObservableList<Merchandise> merchandiseList() throws SQLException {
+
+        merchandises.clear();
+
+        merchandises.addAll(merchandiseDAO.list());
+
+
+        return merchandises;
+    }
 }
