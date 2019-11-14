@@ -14,6 +14,7 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
 
     private static String LIST = "select * from Merchandise";
     private static String INSERT = "INSERT INTO Merchandise(Name, Amount, Price) VALUES (?, ?, ?)";
+    private static String SEARCHLIST = "SELECT * FROM Merchandise WHERE Name LIKE ?";
 
     @Override
     public Merchandise insert(String name, int amount, Float price) throws SQLException{
@@ -49,6 +50,34 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
 
         Connection con = ConnectionCreator.getConnection();
         PreparedStatement stm = con.prepareStatement(LIST);
+
+        ResultSet rs = stm.executeQuery();
+
+        while(rs.next()){
+            int id = rs.getInt("Id");
+            String name = rs.getString("Name");
+            int amount = rs.getInt("Amount");
+            float price = rs.getFloat("Price");
+
+            Merchandise m = new Merchandise(id,name,amount,price);
+
+            merchandises.add(m);
+        }
+
+        rs.close();
+        stm.close();
+        con.close();
+
+        return merchandises;
+    }
+
+    @Override
+    public ArrayList<Merchandise> searchList(String text) throws SQLException {
+        ArrayList<Merchandise> merchandises = new ArrayList<>();
+
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(SEARCHLIST);
+        stm.setString(1, '%'+text+'%');
 
         ResultSet rs = stm.executeQuery();
 

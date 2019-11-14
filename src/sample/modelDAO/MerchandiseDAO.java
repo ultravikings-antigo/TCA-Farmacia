@@ -12,5 +12,6 @@ public interface MerchandiseDAO {
     Merchandise update(String name, int amount,Float price) throws SQLException;
     boolean delete(String name, int id) throws SQLException;
     ArrayList<Merchandise> list() throws SQLException;
+    ArrayList<Merchandise> searchList(String text) throws SQLException;
 
 }

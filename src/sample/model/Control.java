@@ -117,4 +117,11 @@ public class Control {
 
         return merchandises;
     }
+
+    public ObservableList<Merchandise> merchandiseSearch(String text) throws SQLException{
+        merchandises.clear();
+        merchandises.addAll(merchandiseDAO.searchList(text));
+
+        return merchandises;
+    }
 }
