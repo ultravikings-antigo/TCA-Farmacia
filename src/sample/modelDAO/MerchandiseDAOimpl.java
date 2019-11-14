@@ -12,11 +12,25 @@ import java.util.ArrayList;
 
 public class MerchandiseDAOimpl implements MerchandiseDAO {
 
-    private static String LISTA = "select * from Merchandise";
+    private static String LIST = "select * from Merchandise";
+    private static String INSERT = "INSERT INTO Merchandise(Name, Amount, Price) VALUES (?, ?, ?)";
 
     @Override
-    public Merchandise insert(String name, int amount, Float price) {
-        return null;
+    public Merchandise insert(String name, int amount, Float price) throws SQLException{
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(INSERT);
+
+        Merchandise m = new Merchandise(name, amount, price);
+
+        stm.setString(1, m.getName());
+        stm.setInt(2, m.getAmount());
+        stm.setFloat(3, m.getPrice());
+
+        stm.executeQuery();
+
+        stm.close();
+        con.close();
+        return m;
     }
 
     @Override
@@ -34,7 +48,7 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
         ArrayList<Merchandise> merchandises = new ArrayList<>();
 
         Connection con = ConnectionCreator.getConnection();
-        PreparedStatement stm = con.prepareStatement(LISTA);
+        PreparedStatement stm = con.prepareStatement(LIST);
 
         ResultSet rs = stm.executeQuery();
 

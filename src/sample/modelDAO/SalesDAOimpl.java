@@ -9,6 +9,10 @@ import java.util.Date;
 public class SalesDAOimpl implements SalesDAO{
 
     private static String INSERT = "insert into Sales(Client_Id,Salesman_Id,Date, Total_Value) values";
+    private static String LIST = "SELECT (*) FROM Sales;";
+
+    ClientDAO clientDAO = new ClientDAOimpl();
+    SalesmanDAO salesmanDAO = new SalesmanDAOimpl();
 
     @Override
     public Sales insert(Client client, Salesman salesman, Date date, Float totalValue) throws SQLException {
@@ -43,7 +47,25 @@ public class SalesDAOimpl implements SalesDAO{
     }
 
     @Override
-    public ArrayList<Sales> list() {
-        return null;
+    public ArrayList<Sales> list() throws SQLException{
+        ArrayList<Sales> sales = new ArrayList<>();
+
+
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(LIST);
+        ResultSet res = stm.executeQuery();
+
+        Sales s = new Sales();
+
+        while (res.next()){
+            s.setId(res.getInt("Id"));
+            s.setDate(res.getDate("Date"));
+            s.setTotalValue(res.getFloat("Total_Value"));
+            s.setClient(clientDAO.idSearch(res.getInt("Client_Id")));
+            s.setSalesman(salesmanDAO.idSearch(res.getInt("Salesman_Id")));
+            sales.add(s);
+        }
+
+        return sales;
     }
 }

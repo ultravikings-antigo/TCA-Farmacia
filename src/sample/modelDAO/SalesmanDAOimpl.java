@@ -1,5 +1,6 @@
 package sample.modelDAO;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import sample.model.ConnectionCreator;
 import sample.model.Sales;
 import sample.model.Salesman;
@@ -9,8 +10,9 @@ import java.util.ArrayList;
 
 public class SalesmanDAOimpl implements SalesmanDAO {
 
-    public static String INSERT = "insert into Salesman(Name,Salary,Address,Telephone,Cpf,Password,Email,Admin)  values(?,?,?,?,?,?,?,?)";
-    public static String LOGIN = "select * from Salesman where Name like ? and Password like ?";
+    private static String INSERT = "insert into Salesman(Name,Salary,Address,Telephone,Cpf,Password,Email,Admin)  values(?,?,?,?,?,?,?,?)";
+    private static String LOGIN = "select * from Salesman where Name like ? and Password like ?";
+    private static String IDSEARCH = "SELECT * FROM Salesman WHERE Id = ?";
 
     @Override
     public Salesman insert(String name, Float salary, String address, String telephone, String cpf,String password , String email, Boolean admin) throws SQLException {
@@ -83,5 +85,29 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     @Override
     public ArrayList<Salesman> list() {
         return null;
+    }
+
+    @Override
+    public Salesman idSearch(int id) throws SQLException {
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(IDSEARCH);
+        stm.setInt(1, id);
+        ResultSet res = stm.executeQuery();
+
+        Salesman s = new Salesman();
+
+        while (res.next()){
+            s.setId(res.getInt("Id"));
+            s.setName(res.getString("Name"));
+            s.setSalary(res.getFloat("Salary"));
+            s.setAddress(res.getString("Address"));
+            s.setTelephone(res.getString("Telephone"));
+            s.setCpf(res.getString("Cpf"));
+            s.setPassword(res.getString("Password"));
+            s.setEmail(res.getString("Email"));
+            s.setAdmin(res.getBoolean("Admin"));
+        }
+
+        return s;
     }
 }

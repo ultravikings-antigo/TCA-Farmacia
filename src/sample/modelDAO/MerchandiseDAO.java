@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public interface MerchandiseDAO {
 
-    Merchandise insert (String name, int amount,Float price);
-    Merchandise update(String name, int amount,Float price);
-    boolean delete(String name, int id);
+    Merchandise insert (String name, int amount,Float price) throws SQLException;
+    Merchandise update(String name, int amount,Float price) throws SQLException;
+    boolean delete(String name, int id) throws SQLException;
     ArrayList<Merchandise> list() throws SQLException;
 
 }

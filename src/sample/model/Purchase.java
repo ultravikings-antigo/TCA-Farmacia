@@ -22,6 +22,10 @@ public class Purchase {
         this.totalValue = totalValue;
     }
 
+    public Purchase() {
+
+    }
+
     public int getId() {
         return id;
     }

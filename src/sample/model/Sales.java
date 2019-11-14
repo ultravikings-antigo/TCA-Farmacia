@@ -25,6 +25,10 @@ public class Sales {
         this.totalValue = totalValue;
     }
 
+    public Sales() {
+
+    }
+
     public int getId() {
         return id;
     }

@@ -1,5 +1,6 @@
 package sample.modelDAO;
 
+import sample.model.Sales;
 import sample.model.Salesman;
 
 import java.sql.SQLException;
@@ -12,4 +13,5 @@ public interface SalesmanDAO {
     Salesman login(String name,String password) throws SQLException;
     boolean delete(int id);
     ArrayList<Salesman> list();
+    Salesman idSearch (int id) throws SQLException;
 }

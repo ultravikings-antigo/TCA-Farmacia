@@ -35,6 +35,10 @@ public class Salesman {
         this.admin = admin;
     }
 
+    public Salesman() {
+
+    }
+
     public int getId() {
         return id;
     }

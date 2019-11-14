@@ -19,6 +19,10 @@ public class Provider {
         this.email = email;
     }
 
+    public Provider() {
+
+    }
+
     public int getId() {
         return id;
     }
