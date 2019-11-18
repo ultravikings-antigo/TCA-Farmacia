@@ -121,4 +121,12 @@ public class Control {
 
         return merchandises;
     }
+
+    public ObservableList<Sales> salesSearch(String text) throws SQLException{
+        sales.clear();
+        sales.addAll(salesDAO.searchList(text));
+
+        return sales;
+
+    }
 }

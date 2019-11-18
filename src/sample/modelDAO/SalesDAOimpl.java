@@ -10,6 +10,8 @@ public class SalesDAOimpl implements SalesDAO{
 
     private static String INSERT = "insert into Sales(Client_Id,Salesman_Id,Date, Total_Value) values";
     private static String LIST = "SELECT (*) FROM Sales;";
+    private static String SEARCHLIST = "SELECT * FROM Sales WHERE Date BETWEEN ? and ?";
+
 
     ClientDAO clientDAO = new ClientDAOimpl();
     SalesmanDAO salesmanDAO = new SalesmanDAOimpl();
@@ -65,6 +67,34 @@ public class SalesDAOimpl implements SalesDAO{
             s.setSalesman(salesmanDAO.idSearch(res.getInt("Salesman_Id")));
             sales.add(s);
         }
+
+        return sales;
+    }
+
+    @Override
+    public ArrayList<Sales> searchList(String text) throws SQLException {
+        ArrayList<Sales> sales = new ArrayList<>();
+
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(SEARCHLIST);
+        stm.setString(1, '%'+text+'%');
+
+        ResultSet rs = stm.executeQuery();
+
+        while(rs.next()){
+            int id = rs.getInt("Id");
+            String name = rs.getString("Name");
+            int amount = rs.getInt("Amount");
+            float price = rs.getFloat("Price");
+
+            Sales s = new Sales();
+
+            sales.add(s);
+        }
+
+        rs.close();
+        stm.close();
+        con.close();
 
         return sales;
     }
