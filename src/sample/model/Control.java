@@ -37,12 +37,9 @@ public class Control {
         return instance;
     }
 
-    public Salesman login(String name, String password) throws SQLException {
-        Salesman s = null;
+    public Salesman login(String name, String password) throws SQLException{
+        return salesmanDAO.login(name, password);
 
-        s = salesmanDAO.login(name, password);
-
-        return s;
     }
 
     public Salesman register(String name,String address, String telephone, String cpf, String email, String password) throws SQLException {

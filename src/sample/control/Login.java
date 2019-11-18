@@ -3,6 +3,8 @@ package sample.control;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import sample.Browser;
@@ -44,12 +46,16 @@ public class Login {
             }else{
                 txtPassword.setVisible(false);
 
-                Salesman s = Control.getInstance().login(tfUser.getText(),tfPassword.getText());
+                Salesman s = Control.getInstance().login(tfUser.getText(), tfPassword.getText());
 
-                if (s == null){
-                    txtError.setVisible(true);
-                }else{
+                if(s != null){
+                    Alert a = new Alert(Alert.AlertType.WARNING, "LOGIN CONCLUIDO", ButtonType.CLOSE);
+                    a.showAndWait();
                     Browser.loadWindows(Browser.MENU);
+                }
+                else{
+                    Alert a = new Alert(Alert.AlertType.WARNING, "FALHA NO LOGIN", ButtonType.CLOSE);
+                    a.showAndWait();
                 }
             }
         }
