@@ -45,7 +45,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tbvStorage" layoutX="14.0" layoutY="217.0" prefHeight="375.0" prefWidth="1252.0">
+      <TableView fx:id="tbvStorage" editable="true" layoutX="14.0" layoutY="217.0" onMouseClicked="#mouseClickTbl" prefHeight="375.0" prefWidth="1252.0">
          <columns>
             <TableColumn fx:id="tcId" minWidth="100.0" prefWidth="88.0" style="-fx-background-color: #4FA489;" text="ID" />
             <TableColumn fx:id="tcName" minWidth="313.0" prefWidth="515.0" style="-fx-background-color: #4FA489;" text="NOME" />
@@ -91,7 +91,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXTextArea labelFloat="true" layoutX="14.0" layoutY="628.0" prefHeight="68.0" prefWidth="200.0" promptText="Nome" unFocusColor="WHITE">
+      <JFXTextArea fx:id="tfName" labelFloat="true" layoutX="14.0" layoutY="628.0" prefHeight="68.0" prefWidth="200.0" promptText="Nome" unFocusColor="WHITE">
          <focusColor>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -104,7 +104,7 @@
             <Font size="20.0" />
          </font>
       </JFXTextArea>
-      <JFXTextArea labelFloat="true" layoutX="279.0" layoutY="628.0" prefHeight="68.0" prefWidth="200.0" promptText="Estoque" unFocusColor="WHITE">
+      <JFXTextArea fx:id="tfQuantity" labelFloat="true" layoutX="279.0" layoutY="628.0" prefHeight="68.0" prefWidth="200.0" promptText="Estoque" unFocusColor="WHITE">
          <focusColor>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -117,7 +117,7 @@
             <Font size="20.0" />
          </font>
       </JFXTextArea>
-      <JFXTextArea labelFloat="true" layoutX="540.0" layoutY="628.0" prefHeight="68.0" prefWidth="200.0" promptText="Valor" unFocusColor="WHITE">
+      <JFXTextArea fx:id="tfValue" labelFloat="true" layoutX="540.0" layoutY="628.0" prefHeight="68.0" prefWidth="200.0" promptText="Valor" unFocusColor="WHITE">
          <focusColor>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>

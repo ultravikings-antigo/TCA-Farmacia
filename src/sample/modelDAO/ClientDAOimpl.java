@@ -48,8 +48,26 @@ public class ClientDAOimpl implements ClientDAO{
     }
 
     @Override
-    public ArrayList<Client> list() {
-        return null;
+    public ArrayList<Client> list() throws SQLException{
+        ArrayList<Client> clients = new ArrayList<>();
+
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(LIST);
+        ResultSet res = stm.executeQuery();
+        Client c = new Client();
+
+        while (res.next()){
+            c.setId(res.getInt("Id"));
+            c.setName(res.getString("Name"));
+            c.setAddress(res.getString("Address"));
+            c.setCpf(res.getString("Cpf"));
+            c.setEmail(res.getString("Email"));
+            c.setTelephone(res.getString("Telephone"));
+
+            clients.add(c);
+        }
+
+        return clients;
     }
 
     @Override
