@@ -100,11 +100,11 @@ public class Storage {
         String text = ((TextField)evt.getSource()).getText();
 
         try{
-            if(text.length() <= 2){
+            if(text.length() <= 1){
                 Control.getInstance().merchandiseList();
             }else{
 
-                if(text.length() >= 3){
+                if(text.length() >= 2){
                     Control.getInstance().merchandiseSearch(text);
                 }
             }

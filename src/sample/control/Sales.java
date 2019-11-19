@@ -18,6 +18,9 @@ public class Sales {
     private TableView<Merchandise> tbSales;
 
     @FXML
+    private TableView<Sales>  tbMerchandise;
+
+    @FXML
     private TableColumn<Merchandise,Integer> tcSalesId;
 
     @FXML
@@ -28,6 +31,24 @@ public class Sales {
 
     @FXML
     private TableColumn<Merchandise,Float> tcSalesValue;
+
+    @FXML
+    private TableColumn<Sales,Integer> tcMerchandiseId;
+
+    @FXML
+    private TableColumn<Sales,String> tcMerchandiseName;
+
+    @FXML
+    private TableColumn<Sales,Integer> tcMerchandiseStorage;
+
+    @FXML
+    private TableColumn<Sales,Float> tcMerchandiseValue;
+
+    @FXML
+    private TableColumn<Sales,Integer> tcMerchandiseDesconto;
+
+    @FXML
+    private TableColumn<Sales,Float> tcMerchandiseTotalValue;
 
     public void initialize() throws SQLException {
         tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
@@ -44,16 +65,22 @@ public class Sales {
     }
 
     @FXML
+    private void actionSale(){
+
+        //tbMerchandise.setItems(tbSales.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
     private void actionSearch(KeyEvent evt){
         String text = ((TextField)evt.getSource()).getText();
 
         try{
-            if(text.length() <= 2){
+            if(text.length() <= 1){
                 Control.getInstance().merchandiseList();
             }else{
 
-                if(text.length() >= 3){
-                    Control.getInstance().salesSearch(text);
+                if(text.length() >= 2){
+                    Control.getInstance().merchandiseSearch(text);
                 }
             }
         }catch (SQLException e){
@@ -67,4 +94,5 @@ public class Sales {
         Browser.loadWindows(Browser.MENU);
 
     }
+
 }

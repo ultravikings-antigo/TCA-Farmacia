@@ -54,45 +54,12 @@
             <TableColumn fx:id="tcPrice" minWidth="315.0" onEditCommit="#editCommitPrice" prefWidth="75.0" style="-fx-background-color: #4FA489;" text="VALOR" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="tfSearch" focusColor="WHITE" layoutX="14.0" layoutY="128.0" onKeyPressed="#actionSearch" prefHeight="68.0" prefWidth="1000.0" style="-fx-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="tfSearch" focusColor="WHITE" layoutX="14.0" layoutY="128.0" onKeyPressed="#actionSearch" prefHeight="68.0" prefWidth="1252.0" style="-fx-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1066.0" layoutY="128.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Buscar">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#00f38d" />
-                  <Stop color="#00f38d" offset="0.007407407407407408" />
-                  <Stop color="#009eff" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="1066.0" layoutY="620.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Salvar Ediçao">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#00f38d" />
-                  <Stop color="#009eff" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="848.0" layoutY="620.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Gerar Relatorio">
+      <JFXButton layoutX="1066.0" layoutY="620.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Gerar Relatorio">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>

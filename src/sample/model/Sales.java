@@ -1,5 +1,6 @@
 package sample.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Sales {
@@ -8,13 +9,15 @@ public class Sales {
     private Client client;
     private Salesman salesman;
     private Date date;
+    private ArrayList<Merchandise> merchandises;
     private Float totalValue;
 
-    public Sales(int id, Client client, Salesman salesman, Date date, Float totalValue) {
+    public Sales(int id, Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) {
         this.id = id;
         this.client = client;
         this.salesman = salesman;
         this.date = date;
+        this.merchandises = merchandises;
         this.totalValue = totalValue;
     }
 
