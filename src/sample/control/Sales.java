@@ -30,12 +30,12 @@ public class Sales {
     private TableColumn<Merchandise,Float> tcSalesValue;
 
     public void initialize() throws SQLException {
-        tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+       /* tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
-        tbSales.setItems(Control.getInstance().merchandiseList());
+        tbSales.setItems(Control.getInstance().merchandiseList());*/
     }
 
     @FXML

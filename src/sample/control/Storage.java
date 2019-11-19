@@ -49,7 +49,7 @@ public class Storage {
     private TextField tfSearch;
 
     public void initialize() throws SQLException {
-        tcId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        /*tcId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         tcAmount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
@@ -58,7 +58,7 @@ public class Storage {
         //tcPrice.setCellFactory(TextFieldTableCell.forTableColumn());
         //tcAmount.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        tbvStorage.setItems(Control.getInstance().merchandiseList());
+        tbvStorage.setItems(Control.getInstance().merchandiseList());*/
     }
 
     @FXML
