@@ -15,10 +15,10 @@ import java.sql.SQLException;
 public class Sales {
 
     @FXML
-    private TableView<Merchandise> tbSales;
+    private TableView<Merchandise> tbMerchandise;
 
     @FXML
-    private TableView<Sales>  tbMerchandise;
+    private TableView<Sales>  tbSales;
 
     @FXML
     private TableColumn<Merchandise,Integer> tcSalesId;
@@ -56,7 +56,7 @@ public class Sales {
         tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
-        tbSales.setItems(Control.getInstance().merchandiseList());
+        tbMerchandise.setItems(Control.getInstance().merchandiseList());
     }
 
     @FXML
@@ -65,7 +65,8 @@ public class Sales {
     }
 
     @FXML
-    private void actionSale(){
+    private void actionSale() throws SQLException{
+        tbMerchandise.getSelectionModel().getSelectedItem();
 
         //tbMerchandise.setItems(tbSales.getSelectionModel().getSelectedItem());
     }
