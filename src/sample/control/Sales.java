@@ -3,7 +3,9 @@ package sample.control;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
@@ -34,6 +36,24 @@ public class Sales {
         tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         tbSales.setItems(Control.getInstance().merchandiseList());
+    }
+
+    @FXML
+    private void actionSearch(KeyEvent evt){
+        String text = ((TextField)evt.getSource()).getText();
+
+        try{
+            if(text.length() <= 2){
+                Control.getInstance().merchandiseList();
+            }else{
+
+                if(text.length() >= 3){
+                    Control.getInstance().salesSearch(text);
+                }
+            }
+        }catch (SQLException e){
+            System.out.printf("Erro ao realizar busca");
+        }
     }
 
     @FXML

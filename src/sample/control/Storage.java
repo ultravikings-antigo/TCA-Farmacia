@@ -1,11 +1,17 @@
 package sample.control;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
+import javafx.util.Callback;
 import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
@@ -31,6 +37,15 @@ public class Storage {
     private TableColumn<Merchandise, Float> tcPrice;
 
     @FXML
+    private TextArea taName;
+
+    @FXML
+    private TextArea taValue;
+
+    @FXML
+    private TextArea taQuantity;
+
+    @FXML
     private TextField tfSearch;
 
     public void initialize() throws SQLException {
@@ -38,6 +53,10 @@ public class Storage {
         tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         tcAmount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+
+        tcName.setCellFactory(TextFieldTableCell.forTableColumn());
+        //tcPrice.setCellFactory(TextFieldTableCell.forTableColumn());
+        //tcAmount.setCellFactory(TextFieldTableCell.forTableColumn());
 
         tbvStorage.setItems(Control.getInstance().merchandiseList());
     }
