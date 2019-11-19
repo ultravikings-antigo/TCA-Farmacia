@@ -21,10 +21,11 @@ public class Sales {
         this.totalValue = totalValue;
     }
 
-    public Sales(Client client, Salesman salesman, Date date, Float totalValue) {
+    public Sales(Client client, Salesman salesman, Date date,ArrayList<Merchandise> merchandises ,Float totalValue) {
         this.client = client;
         this.salesman = salesman;
         this.date = date;
+        this.merchandises = merchandises;
         this.totalValue = totalValue;
     }
 
