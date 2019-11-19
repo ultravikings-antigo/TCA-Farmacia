@@ -14,4 +14,9 @@ public class Menu {
     public void actionStorage(){
         Browser.loadWindows(Browser.STORAGE);
     }
+
+    @FXML
+    private void actionLogin(){
+
+    }
 }

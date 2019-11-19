@@ -12,6 +12,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
+import javafx.util.converter.FloatStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
@@ -49,16 +51,41 @@ public class Storage {
     private TextField tfSearch;
 
     public void initialize() throws SQLException {
-        /*tcId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        tcId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         tcAmount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
 
         tcName.setCellFactory(TextFieldTableCell.forTableColumn());
-        //tcPrice.setCellFactory(TextFieldTableCell.forTableColumn());
-        //tcAmount.setCellFactory(TextFieldTableCell.forTableColumn());
+        tcPrice.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
+        tcAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
-        tbvStorage.setItems(Control.getInstance().merchandiseList());*/
+        tbvStorage.setItems(Control.getInstance().merchandiseList());
+    }
+
+    @FXML
+    private void actionLogin(){
+
+    }
+
+    @FXML
+    private void editCommitPrice() throws SQLException{
+        Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
+
+        Control.getInstance().updateMerchandise(m);    }
+
+    @FXML
+    private void editCommitName() throws SQLException{
+        Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
+
+        Control.getInstance().updateMerchandise(m);
+    }
+
+    @FXML
+    private void editCommitAmount() throws SQLException{
+        Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
+
+        Control.getInstance().updateMerchandise(m);
     }
 
     @FXML

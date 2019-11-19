@@ -129,4 +129,9 @@ public class Control {
         return sales;
 
     }
+
+    public void updateMerchandise(Merchandise m) throws SQLException{
+        merchandiseDAO.update(m);
+
+    }
 }

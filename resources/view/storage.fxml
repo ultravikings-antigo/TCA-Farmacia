@@ -46,12 +46,12 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tbvStorage" layoutX="14.0" layoutY="217.0" prefHeight="375.0" prefWidth="1252.0">
+      <TableView fx:id="tbvStorage" editable="true" layoutX="14.0" layoutY="217.0" prefHeight="375.0" prefWidth="1252.0">
          <columns>
             <TableColumn fx:id="tcId" minWidth="100.0" prefWidth="88.0" style="-fx-background-color: #4FA489;" text="ID" />
-            <TableColumn fx:id="tcName" minWidth="313.0" prefWidth="515.0" style="-fx-background-color: #4FA489;" text="NOME" />
-            <TableColumn fx:id="tcAmount" minWidth="315.0" prefWidth="336.0" style="-fx-background-color: #4FA489;" text="ESTOQUE" />
-            <TableColumn fx:id="tcPrice" minWidth="315.0" prefWidth="75.0" style="-fx-background-color: #4FA489;" text="VALOR" />
+            <TableColumn fx:id="tcName" minWidth="313.0" onEditCommit="#editCommitName" prefWidth="515.0" style="-fx-background-color: #4FA489;" text="NOME" />
+            <TableColumn fx:id="tcAmount" minWidth="315.0" onEditCommit="#editCommitAmount" prefWidth="336.0" style="-fx-background-color: #4FA489;" text="ESTOQUE" />
+            <TableColumn fx:id="tcPrice" minWidth="315.0" onEditCommit="#editCommitPrice" prefWidth="75.0" style="-fx-background-color: #4FA489;" text="VALOR" />
          </columns>
       </TableView>
       <JFXTextField fx:id="tfSearch" focusColor="WHITE" layoutX="14.0" layoutY="128.0" onKeyPressed="#actionSearch" prefHeight="68.0" prefWidth="1000.0" style="-fx-text-fill: white;" unFocusColor="WHITE">

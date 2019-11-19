@@ -39,6 +39,11 @@ public class Sales {
     }
 
     @FXML
+    private void actionLogin(){
+
+    }
+
+    @FXML
     private void actionSearch(KeyEvent evt){
         String text = ((TextField)evt.getSource()).getText();
 

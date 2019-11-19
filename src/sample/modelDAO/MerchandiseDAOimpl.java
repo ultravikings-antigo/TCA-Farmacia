@@ -15,6 +15,7 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
     private static String LIST = "select * from Merchandise";
     private static String INSERT = "INSERT INTO Merchandise(Name, Amount, Price) VALUES (?, ?, ?)";
     private static String SEARCHLIST = "SELECT * FROM Merchandise WHERE Name LIKE ?";
+    private static String UPDATE = "UPDATE Merchandise SET Name = ?, Price = ?, Amount = ? WHERE Id = ?";
 
     @Override
     public Merchandise insert(String name, int amount, Float price) throws SQLException{
@@ -35,9 +36,23 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
     }
 
     @Override
-    public Merchandise update(String name, int amount, Float price) {
-        return null;
+    public void update(Merchandise m) throws SQLException{
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(UPDATE);
+
+        System.out.println(m);
+
+        stm.setString(1, m.getName());
+        stm.setFloat(2, m.getPrice());
+        stm.setInt(3, m.getAmount());
+        stm.setInt(4, m.getId());
+
+        stm.executeQuery();
+
+        con.close();
+        stm.close();
     }
+
 
     @Override
     public boolean delete(String name, int id) {

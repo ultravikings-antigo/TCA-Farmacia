@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface MerchandiseDAO {
 
     Merchandise insert (String name, int amount,Float price) throws SQLException;
-    Merchandise update(String name, int amount,Float price) throws SQLException;
+    void update(Merchandise m) throws SQLException;
     boolean delete(String name, int id) throws SQLException;
     ArrayList<Merchandise> list() throws SQLException;
     ArrayList<Merchandise> searchList(String text) throws SQLException;
