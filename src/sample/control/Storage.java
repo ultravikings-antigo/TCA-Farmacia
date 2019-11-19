@@ -1,5 +1,6 @@
 package sample.control;
 
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -60,6 +61,7 @@ public class Storage {
         tcPrice.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
         tcAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
+        //tcPrice.setCellValueFactory(e -> new SimpleFloatProperty(e.getValue().getPrice()));
         tbvStorage.setItems(Control.getInstance().merchandiseList());
     }
 
@@ -69,21 +71,26 @@ public class Storage {
     }
 
     @FXML
-    private void editCommitPrice() throws SQLException{
+    private void editCommitPrice(TableColumn.CellEditEvent cellEditEvent) throws SQLException{
         Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
+        m.setPrice(Float.valueOf(cellEditEvent.getNewValue().toString()));
 
-        Control.getInstance().updateMerchandise(m);    }
-
-    @FXML
-    private void editCommitName() throws SQLException{
-        Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
 
         Control.getInstance().updateMerchandise(m);
     }
 
     @FXML
-    private void editCommitAmount() throws SQLException{
+    private void editCommitName(TableColumn.CellEditEvent cellEditEvent) throws SQLException{
         Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
+        m.setName(String.valueOf(cellEditEvent.getNewValue().toString()));
+
+        Control.getInstance().updateMerchandise(m);
+    }
+
+    @FXML
+    private void editCommitAmount(TableColumn.CellEditEvent cellEditEvent) throws SQLException{
+        Merchandise m = tbvStorage.getSelectionModel().getSelectedItem();
+        m.setAmount(Integer.valueOf(cellEditEvent.getNewValue().toString()));
 
         Control.getInstance().updateMerchandise(m);
     }

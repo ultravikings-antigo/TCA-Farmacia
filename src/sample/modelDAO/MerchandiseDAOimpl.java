@@ -40,14 +40,12 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
         Connection con = ConnectionCreator.getConnection();
         PreparedStatement stm = con.prepareStatement(UPDATE);
 
-        System.out.println(m);
-
         stm.setString(1, m.getName());
         stm.setFloat(2, m.getPrice());
         stm.setInt(3, m.getAmount());
         stm.setInt(4, m.getId());
 
-        stm.executeQuery();
+        stm.executeUpdate();
 
         con.close();
         stm.close();
