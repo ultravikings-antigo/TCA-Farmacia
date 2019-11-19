@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Login">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Login">
    <children>
       <JFXTextField fx:id="tfUser" focusColor="BLACK" labelFloat="true" layoutX="515.0" layoutY="345.0" prefHeight="30.0" prefWidth="250.0" promptText="Usuario" unFocusColor="BLACK">
          <cursor>
@@ -55,7 +55,7 @@
       <Text fx:id="txtUser" fill="#f81a1a" layoutX="794.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtPassword" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Este Campo é Obrigatório" visible="false" />
       <Text fx:id="txtError" fill="#f81a1a" layoutX="794.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Usuario ou Senha Invalido" visible="false" />
-      <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="1215.0" layoutY="14.0" onMouseClicked="#actionBack" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#actionBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/left-arrow.png" />
          </image>

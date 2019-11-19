@@ -10,10 +10,11 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Menu">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Menu">
    <children>
-      <JFXButton layoutX="649.0" layoutY="114.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" text="Funcionarios" textAlignment="RIGHT">
+      <JFXButton layoutX="440.0" layoutY="480.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Funcionarios" textAlignment="RIGHT">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -29,7 +30,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="14.0" layoutY="114.0" mnemonicParsing="false" onAction="#actionSales" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" text="Vendas">
+      <JFXButton layoutX="440.0" layoutY="120.0" mnemonicParsing="false" onAction="#actionSales" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Vendas">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -45,7 +46,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="966.0" layoutY="114.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" text="Compras">
+      <JFXButton layoutX="440.0" layoutY="240.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Compras">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -61,7 +62,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="331.0" layoutY="114.0" mnemonicParsing="false" onAction="#actionStorage" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" text="Estoque">
+      <JFXButton layoutX="440.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionStorage" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Estoque">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -79,12 +80,12 @@
       </JFXButton>
       <Pane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #4FA489;">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="1186.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/user.png" />
                </image>
             </ImageView>
-            <Label layoutX="111.0" layoutY="42.0" text="Não Logado" textFill="WHITE">
+            <Label layoutX="1072.0" layoutY="41.0" text="Não Logado" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -92,7 +93,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="111.0" layoutY="67.0" text="Sair" textFill="WHITE">
+            <Label layoutX="1131.0" layoutY="62.0" text="Sair" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -100,9 +101,22 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
+            <Text layoutX="553.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drugstore">
+               <font>
+                  <Font size="35.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00f38d" />
+                        <Stop color="#009eff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
          </children>
       </Pane>
-      <JFXButton layoutX="14.0" layoutY="207.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" text="Relatorio">
+      <JFXButton layoutX="440.0" layoutY="600.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Relatorio">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -118,29 +132,29 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="659.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/businessman.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="976.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/coin.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="341.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/product.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="24.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="510.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/profit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="24.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="510.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/product.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="516.0" layoutY="625.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/content.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="510.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/coin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="516.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/businessman.png" />
          </image>
       </ImageView>
    </children>
