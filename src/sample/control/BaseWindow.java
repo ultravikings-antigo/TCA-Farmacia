@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
-public class Base{
+public class BaseWindow {
 
     @FXML
     private StackPane base;

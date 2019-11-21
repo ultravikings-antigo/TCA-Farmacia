@@ -21,7 +21,7 @@ public class Sales {
         this.totalValue = totalValue;
     }
 
-    public Sales(Client client, Salesman salesman, Date date,ArrayList<Merchandise> merchandises ,Float totalValue) {
+    public Sales(Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) {
         this.client = client;
         this.salesman = salesman;
         this.date = date;
@@ -73,9 +73,13 @@ public class Sales {
         this.totalValue = totalValue;
     }
 
+    public ArrayList<Merchandise> getMerchandises() {
+        return merchandises;
+    }
+
     @Override
     public String toString() {
-        return "Sales{" +
+        return "SalesWindow{" +
                 "id=" + id +
                 ", client=" + client +
                 ", salesman=" + salesman +

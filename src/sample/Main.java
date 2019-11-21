@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.control.Base;
+import sample.control.BaseWindow;
 
 import java.io.IOException;
 
@@ -30,10 +30,10 @@ public class Main extends Application {
                 )
         );
 
-        Base controller = loader.getController();
+        BaseWindow controller = loader.getController();
 
         Browser.setController(controller);
-        Browser.loadWindows(Browser.MENU);
+        Browser.loadWindow(Browser.MENU);
 
         return mainPane;
     }

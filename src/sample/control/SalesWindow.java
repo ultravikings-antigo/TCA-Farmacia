@@ -12,13 +12,13 @@ import sample.model.Merchandise;
 
 import java.sql.SQLException;
 
-public class Sales {
+public class SalesWindow {
 
     @FXML
     private TableView<Merchandise> tbMerchandise;
 
     @FXML
-    private TableView<Sales>  tbSales;
+    private TableView<SalesWindow> tbSales;
 
     @FXML
     private TableColumn<Merchandise,Integer> tcSalesId;
@@ -33,35 +33,42 @@ public class Sales {
     private TableColumn<Merchandise,Float> tcSalesValue;
 
     @FXML
-    private TableColumn<Sales,Integer> tcMerchandiseId;
+    private TableColumn<SalesWindow,Integer> tcMerchandiseId;
 
     @FXML
-    private TableColumn<Sales,String> tcMerchandiseName;
+    private TableColumn<SalesWindow,String> tcMerchandiseName;
 
     @FXML
-    private TableColumn<Sales,Integer> tcMerchandiseStorage;
+    private TableColumn<SalesWindow,Integer> tcMerchandiseStorage;
 
     @FXML
-    private TableColumn<Sales,Float> tcMerchandiseValue;
+    private TableColumn<SalesWindow,Float> tcMerchandiseValue;
 
     @FXML
-    private TableColumn<Sales,Integer> tcMerchandiseDesconto;
+    private TableColumn<SalesWindow,Integer> tcSalesDiscount;
 
     @FXML
-    private TableColumn<Sales,Float> tcMerchandiseTotalValue;
+    private TableColumn<SalesWindow,Float> tcSalesTotalValue;
 
     public void initialize() throws SQLException {
-        tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
-        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        tcMerchandiseId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        tcMerchandiseName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        tcMerchandiseStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        tcMerchandiseValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         tbMerchandise.setItems(Control.getInstance().merchandiseList());
+
+        tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        tcSalesDiscount.setCellValueFactory(new PropertyValueFactory<>("Discount"));
+        tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
+        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Value"));
     }
 
     @FXML
     private void actionLogin(){
-
+        Browser.loadWindow(Browser.LOGIN);
     }
 
     @FXML
@@ -92,7 +99,7 @@ public class Sales {
     @FXML
     public void actionBack()
     {
-        Browser.loadWindows(Browser.MENU);
+        Browser.loadWindow(Browser.MENU);
 
     }
 

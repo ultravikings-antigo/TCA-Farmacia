@@ -28,7 +28,7 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
         stm.setInt(2, m.getAmount());
         stm.setFloat(3, m.getPrice());
 
-        stm.executeQuery();
+        stm.executeUpdate();
 
         stm.close();
         con.close();

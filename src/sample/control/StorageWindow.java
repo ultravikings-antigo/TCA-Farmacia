@@ -1,28 +1,29 @@
 package sample.control;
 
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Text;
-import javafx.util.Callback;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.converter.FloatStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
 
-import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 
-public class Storage {
+public class StorageWindow {
 
     @FXML
     private TableView<Merchandise> tbvStorage;
@@ -39,17 +40,7 @@ public class Storage {
     @FXML
     private TableColumn<Merchandise, Float> tcPrice;
 
-    @FXML
-    private TextArea taName;
-
-    @FXML
-    private TextArea taValue;
-
-    @FXML
-    private TextArea taQuantity;
-
-    @FXML
-    private TextField tfSearch;
+    private Parent content;
 
     public void initialize() throws SQLException {
         tcId.setCellValueFactory(new PropertyValueFactory<>("Id"));
@@ -61,13 +52,12 @@ public class Storage {
         tcPrice.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
         tcAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
-        //tcPrice.setCellValueFactory(e -> new SimpleFloatProperty(e.getValue().getPrice()));
         tbvStorage.setItems(Control.getInstance().merchandiseList());
     }
 
     @FXML
     private void actionLogin(){
-
+        Browser.loadWindow(Browser.LOGIN);
     }
 
     @FXML
@@ -96,6 +86,10 @@ public class Storage {
     }
 
     @FXML
+    private void merchandiseRegister() throws IOException {
+    }
+
+    @FXML
     private void actionSearch(KeyEvent evt){
         String text = ((TextField)evt.getSource()).getText();
 
@@ -115,6 +109,6 @@ public class Storage {
 
     @FXML
     public void actionBack(){
-        Browser.loadWindows(Browser.MENU);
+        Browser.loadWindow(Browser.MENU);
     }
 }

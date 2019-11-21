@@ -3,20 +3,20 @@ package sample.control;
 import javafx.fxml.FXML;
 import sample.Browser;
 
-public class Menu {
+public class MenuWindow {
 
     @FXML
     public void actionSales(){
-        Browser.loadWindows(Browser.SALES);
+        Browser.loadWindow(Browser.SALES);
     }
 
     @FXML
     public void actionStorage(){
-        Browser.loadWindows(Browser.STORAGE);
+        Browser.loadWindow(Browser.STORAGE);
     }
 
     @FXML
     private void actionLogin(){
-
+        Browser.loadWindow(Browser.LOGIN);
     }
 }

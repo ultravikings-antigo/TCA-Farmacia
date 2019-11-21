@@ -8,17 +8,17 @@ import java.util.Date;
 
 public class SalesDAOimpl implements SalesDAO{
 
-    private static String INSERT = "insert into Sales(Client_Id,Salesman_Id,Date, Total_Value) values";
-    private static String LIST = "SELECT (*) FROM Sales;";
-    private static String SEARCHLIST = "SELECT * FROM Sales WHERE Date BETWEEN ? and ?";
+    private static String INSERT = "insert into SalesWindow(Client_Id,Salesman_Id,Date, Total_Value) values";
+    private static String LIST = "SELECT (*) FROM SalesWindow;";
+    private static String SEARCHLIST = "SELECT * FROM SalesWindow WHERE Date BETWEEN ? and ?";
 
 
     ClientDAO clientDAO = new ClientDAOimpl();
     SalesmanDAO salesmanDAO = new SalesmanDAOimpl();
 
     @Override
-    public Sales insert(Client client, Salesman salesman, Date date, Float totalValue) throws SQLException {
-        Sales s = new Sales(client,salesman,date,totalValue);
+    public Sales insert(Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) throws SQLException {
+        Sales s = new Sales(client,salesman, date, merchandises, totalValue);
 
         Connection con = ConnectionCreator.getConnection();
 
@@ -39,7 +39,7 @@ public class SalesDAOimpl implements SalesDAO{
     }
 
     @Override
-    public Sales update(Client client, Salesman salesman, Date date, Float totalValue) {
+    public Sales update(Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) throws SQLException {
         return null;
     }
 

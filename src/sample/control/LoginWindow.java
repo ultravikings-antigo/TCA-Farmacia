@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import sample.Browser;
 import sample.model.Control;
@@ -13,7 +12,7 @@ import sample.model.Salesman;
 
 import java.sql.SQLException;
 
-public class Login {
+public class LoginWindow {
 
     @FXML
     private JFXTextField tfUser;
@@ -32,7 +31,7 @@ public class Login {
 
     @FXML
     public void actionRegister(){
-        Browser.loadWindows(Browser.REGISTER);
+        Browser.loadWindow(Browser.REGISTER);
     }
 
     @FXML
@@ -51,7 +50,7 @@ public class Login {
                 if(s != null){
                     Alert a = new Alert(Alert.AlertType.WARNING, "LOGIN CONCLUIDO", ButtonType.CLOSE);
                     a.showAndWait();
-                    Browser.loadWindows(Browser.MENU);
+                    Browser.loadWindow(Browser.MENU);
                 }
                 else{
                     Alert a = new Alert(Alert.AlertType.WARNING, "FALHA NO LOGIN", ButtonType.CLOSE);
@@ -59,5 +58,10 @@ public class Login {
                 }
             }
         }
+    }
+
+    @FXML
+    private void actionBack(){
+        Browser.loadWindow(Browser.MENU);
     }
 }

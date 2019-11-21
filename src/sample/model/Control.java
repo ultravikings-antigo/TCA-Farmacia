@@ -2,6 +2,7 @@ package sample.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.control.SalesWindow;
 import sample.modelDAO.*;
 
 import java.sql.SQLException;
@@ -132,6 +133,16 @@ public class Control {
 
     public void updateMerchandise(Merchandise m) throws SQLException{
         merchandiseDAO.update(m);
+
+    }
+
+    public ObservableList<SalesWindow> salesList() {
+
+        return null;
+    }
+
+    public void merchandiseRegister(Merchandise m) throws SQLException{
+        merchandiseDAO.insert(m.getName(), m.getAmount(), m.getPrice());
 
     }
 }

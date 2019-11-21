@@ -6,13 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import sample.Browser;
 import sample.model.Control;
-import sample.modelDAO.SalesmanDAO;
-import sample.modelDAO.SalesmanDAOimpl;
 
 import java.sql.SQLException;
 
 
-public class Register {
+public class RegisterWindow {
 
     @FXML
     private JFXTextField tfName;
@@ -65,7 +63,7 @@ public class Register {
 
     @FXML
     public void actionBack(){
-        Browser.loadWindows(Browser.LOGIN);
+        Browser.loadWindow(Browser.LOGIN);
     }
 
     @FXML
