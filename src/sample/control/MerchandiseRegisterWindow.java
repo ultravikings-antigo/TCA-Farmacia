@@ -2,9 +2,11 @@ package sample.control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
@@ -23,6 +25,9 @@ public class MerchandiseRegisterWindow {
 
     @FXML
     private AnchorPane window;
+
+    @FXML
+    private Button closeWindow;
 
     @FXML
     private void actionCancel(){
@@ -44,6 +49,8 @@ public class MerchandiseRegisterWindow {
                 tfAmount.clear();
                 tfName.clear();
                 tfPrice.clear();
+                fecharTelaAction();
+
             } catch (SQLException e){
                 Alert a = new Alert(Alert.AlertType.WARNING, "ERRO!", ButtonType.CLOSE);
                 a.showAndWait();
@@ -55,5 +62,12 @@ public class MerchandiseRegisterWindow {
             a.showAndWait();
             e.printStackTrace();
         }
+
+    }
+
+    @FXML
+    private void fecharTelaAction(){
+        Stage stage = (Stage) closeWindow.getScene().getWindow();
+        stage.close();
     }
 }

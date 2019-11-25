@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.control.BaseWindow;
 
@@ -28,6 +29,28 @@ public class Browser {
     public static void loadWindow(String fxml) {
         try {
             controller.setWindow((Node) FXMLLoader.load(Browser.class.getResource(fxml)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadFreeWindow(String fxml){
+        try {
+            Pane root;
+
+            root = FXMLLoader.load(
+                    Browser.class.getResource(
+                            fxml
+                    )
+            );
+
+
+            Scene scene = new Scene(root,root.getPrefWidth(), root.getPrefHeight());
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

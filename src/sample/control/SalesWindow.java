@@ -97,13 +97,6 @@ public class SalesWindow {
     }
 
     @FXML
-    private void actionSale() throws SQLException{
-        tbMerchandise.getSelectionModel().getSelectedItem();
-
-        //tbMerchandise.setItems(tbSales.getSelectionModel().getSelectedItem());
-    }
-
-    @FXML
     private void actionSearch(KeyEvent evt){
         String text = ((TextField)evt.getSource()).getText();
 

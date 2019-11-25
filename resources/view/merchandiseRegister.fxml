@@ -9,7 +9,7 @@
       <JFXTextField fx:id="tfName" layoutX="14.0" layoutY="21.0" prefHeight="30.0" prefWidth="250.0" promptText="Nome" />
       <JFXTextField fx:id="tfPrice" layoutX="14.0" layoutY="76.0" prefHeight="30.0" prefWidth="250.0" promptText="Preço" />
       <JFXTextField fx:id="tfAmount" layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="250.0" promptText="Quantidade" />
-      <JFXButton layoutX="192.0" layoutY="195.0" mnemonicParsing="false" onAction="#actionConclude" text="Concluir" />
+      <JFXButton fx:id="closeWindow" layoutX="192.0" layoutY="195.0" mnemonicParsing="false" onAction="#actionConclude" text="Concluir" />
       <JFXButton layoutX="14.0" layoutY="195.0" mnemonicParsing="false" onAction="#actionCancel" text="Cancelar" />
    </children>
 </AnchorPane>
