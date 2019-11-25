@@ -1,7 +1,11 @@
 package sample.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Sales {
 
@@ -9,19 +13,19 @@ public class Sales {
     private Client client;
     private Salesman salesman;
     private Date date;
-    private ArrayList<Merchandise> merchandises;
+    private ObservableList<SoldMerchandise> merchandises;
     private Float totalValue;
 
-    public Sales(int id, Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) {
-        this.id = id;
+
+    public Sales(Client client, Salesman salesman, Date date, Float totalValue) {
         this.client = client;
         this.salesman = salesman;
         this.date = date;
-        this.merchandises = merchandises;
+        this.merchandises = FXCollections.observableArrayList();
         this.totalValue = totalValue;
     }
 
-    public Sales(Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) {
+    public Sales(Client client, Salesman salesman, Date date, ObservableList<SoldMerchandise> merchandises, Float totalValue) {
         this.client = client;
         this.salesman = salesman;
         this.date = date;
@@ -73,7 +77,7 @@ public class Sales {
         this.totalValue = totalValue;
     }
 
-    public ArrayList<Merchandise> getMerchandises() {
+    public ObservableList<SoldMerchandise> getMerchandises() {
         return merchandises;
     }
 

@@ -41,6 +41,9 @@ public class MerchandiseRegisterWindow {
             try{
                 Merchandise m = new Merchandise(name, amount, price);
                 Control.getInstance().merchandiseRegister(m);
+                tfAmount.clear();
+                tfName.clear();
+                tfPrice.clear();
             } catch (SQLException e){
                 Alert a = new Alert(Alert.AlertType.WARNING, "ERRO!", ButtonType.CLOSE);
                 a.showAndWait();

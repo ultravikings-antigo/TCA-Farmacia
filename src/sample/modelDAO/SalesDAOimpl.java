@@ -17,8 +17,8 @@ public class SalesDAOimpl implements SalesDAO{
     SalesmanDAO salesmanDAO = new SalesmanDAOimpl();
 
     @Override
-    public Sales insert(Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) throws SQLException {
-        Sales s = new Sales(client,salesman, date, merchandises, totalValue);
+    public Sales insert(Client client, Salesman salesman, Date date, Float totalValue) throws SQLException {
+        Sales s = new Sales(client,salesman, date, totalValue);
 
         Connection con = ConnectionCreator.getConnection();
 
@@ -39,7 +39,7 @@ public class SalesDAOimpl implements SalesDAO{
     }
 
     @Override
-    public Sales update(Client client, Salesman salesman, Date date, ArrayList<Merchandise> merchandises, Float totalValue) throws SQLException {
+    public Sales update(Client client, Salesman salesman, Date date, ArrayList<SoldMerchandise> merchandises, Float totalValue) throws SQLException {
         return null;
     }
 

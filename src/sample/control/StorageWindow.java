@@ -87,12 +87,13 @@ public class StorageWindow {
 
     @FXML
     private void merchandiseRegister() throws IOException {
+        Browser.loadWindow(Browser.MERCHANDISE_REGISTER);
+
     }
 
     @FXML
     private void actionSearch(KeyEvent evt){
         String text = ((TextField)evt.getSource()).getText();
-
         try{
             if(text.length() <= 1){
                 Control.getInstance().merchandiseList();

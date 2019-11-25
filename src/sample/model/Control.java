@@ -22,6 +22,7 @@ public class Control {
     private ObservableList<Purchase> purchases;
     private ObservableList<Sales> sales;
     private ObservableList<Salesman> salesmen;
+    private Salesman LogedSalesman;
 
     private Control(){
         clients = FXCollections.observableArrayList();
@@ -39,11 +40,15 @@ public class Control {
     }
 
     public Salesman login(String name, String password) throws SQLException{
-        return salesmanDAO.login(name, password);
-
+        LogedSalesman = salesmanDAO.login(name, password);
+        return LogedSalesman;
     }
 
-    public Salesman register(String name,String address, String telephone, String cpf, String email, String password) throws SQLException {
+    public Salesman getLogedSalesman() {
+        return LogedSalesman;
+    }
+
+    public Salesman register(String name, String address, String telephone, String cpf, String email, String password) throws SQLException {
         Salesman s = null;
 
         s = salesmanDAO.insert(name, (float) 0,address,telephone,cpf,password,email,false);

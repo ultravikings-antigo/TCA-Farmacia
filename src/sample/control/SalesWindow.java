@@ -7,10 +7,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import sample.Browser;
-import sample.model.Control;
-import sample.model.Merchandise;
+import sample.model.*;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.Instant;
+import java.util.ArrayList;
 
 public class SalesWindow {
 
@@ -18,7 +20,7 @@ public class SalesWindow {
     private TableView<Merchandise> tbMerchandise;
 
     @FXML
-    private TableView<SalesWindow> tbSales;
+    private TableView<SoldMerchandise> tbSales;
 
     @FXML
     private TableColumn<Merchandise,Integer> tcSalesId;
@@ -50,6 +52,8 @@ public class SalesWindow {
     @FXML
     private TableColumn<SalesWindow,Float> tcSalesTotalValue;
 
+    private Sales sale;
+
     public void initialize() throws SQLException {
         tcMerchandiseId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcMerchandiseName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -63,12 +67,33 @@ public class SalesWindow {
         tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
-        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Value"));
+        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
+        sale = new Sales(null, Control.getInstance().getLogedSalesman(), Date.from(Instant.now()), (float)0.0);
+
+        tbSales.setItems(sale.getMerchandises());
     }
 
     @FXML
     private void actionLogin(){
         Browser.loadWindow(Browser.LOGIN);
+    }
+
+    @FXML
+    private void actionAddItem(){
+        Merchandise m = tbMerchandise.getSelectionModel().getSelectedItem();
+        SoldMerchandise soldMerchandise = new SoldMerchandise();
+
+        System.out.println("bbb");
+        soldMerchandise.setAmount(m.getAmount());
+        soldMerchandise.setPrice(m.getPrice());
+        soldMerchandise.setMerchandise(m);
+        soldMerchandise.setSales(sale);
+
+        sale.getMerchandises().add(soldMerchandise);
+
+        tbSales.setItems(sale.getMerchandises());
+        System.out.println("aa");
     }
 
     @FXML
