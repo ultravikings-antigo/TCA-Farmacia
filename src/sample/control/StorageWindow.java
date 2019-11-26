@@ -86,9 +86,10 @@ public class StorageWindow {
     }
 
     @FXML
-    private void merchandiseRegister() throws IOException {
+    private void merchandiseRegister() throws SQLException {
         Browser.loadFreeWindow(Browser.MERCHANDISE_REGISTER);
 
+        initialize();
     }
 
     @FXML

@@ -19,4 +19,9 @@ public class MenuWindow {
     private void actionLogin(){
         Browser.loadWindow(Browser.LOGIN);
     }
+
+    @FXML
+    private void actionSalesman(){
+        Browser.loadWindow(Browser.MENU);
+    }
 }
