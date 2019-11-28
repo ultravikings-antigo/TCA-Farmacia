@@ -90,13 +90,13 @@
             <TableColumn fx:id="tcMerchandiseValue" minWidth="100.0" prefWidth="100.0" style="-fx-background-color: #4FA489;" text="VALOR" />
         </columns>
       </TableView>
-      <TableView fx:id="tbSales" layoutX="599.0" layoutY="197.0" prefHeight="421.0" prefWidth="667.0">
+      <TableView fx:id="tbSales" editable="true" layoutX="599.0" layoutY="197.0" prefHeight="421.0" prefWidth="667.0">
          <columns>
             <TableColumn fx:id="tcSalesId" minWidth="50.0" prefWidth="10.0" style="-fx-background-color: #4FA489;" text="ID" />
             <TableColumn fx:id="tcSalesName" minWidth="100.0" prefWidth="200.0" resizable="false" style="-fx-background-color: #4FA489;" text="NOME" />
             <TableColumn fx:id="tcSalesStorage" minWidth="38.0" prefWidth="79.0" style="-fx-background-color: #4FA489;" text="ESTOQUE" />
             <TableColumn fx:id="tcSalesValue" minWidth="98.0" prefWidth="108.0" style="-fx-background-color: #4FA489;" text="VALOR" />
-            <TableColumn fx:id="tcSalesDiscount" minWidth="62.0" prefWidth="99.0" style="-fx-background-color: #4FA489;" text="DESCONTO" />
+            <TableColumn fx:id="tcSalesDiscount" minWidth="62.0" onEditCommit="#ecDesconto" prefWidth="99.0" style="-fx-background-color: #4FA489;" text="DESCONTO" />
             <TableColumn fx:id="tcSalesTotalValue" minWidth="38.0" prefWidth="134.0" style="-fx-background-color: #4FA489;" text="VALOR TOTAL" />
          </columns>
       </TableView>

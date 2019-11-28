@@ -141,6 +141,10 @@ public class Control {
 
     }
 
+    public void updateSoldMerchandise(SoldMerchandise s) throws SQLException{
+
+    }
+
     public ObservableList<SalesWindow> salesList() {
 
         return null;

@@ -5,7 +5,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
+import javafx.util.converter.IntegerStringConverter;
 import sample.Browser;
 import sample.model.*;
 
@@ -64,10 +66,13 @@ public class SalesWindow {
 
         tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcSalesDiscount.setCellValueFactory(new PropertyValueFactory<>("Discount"));
+        tcSalesDiscount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
         tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
         tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
 
         sale = new Sales(null, Control.getInstance().getLogedSalesman(), Date.from(Instant.now()), (float)0.0);
 
@@ -121,4 +126,10 @@ public class SalesWindow {
 
     }
 
+    @FXML
+    private void ecDesconto(TableColumn.CellEditEvent cellEditEvent) throws SQLException{
+        SoldMerchandise s = tbSales.getSelectionModel().getSelectedItem();
+        s.setAmount(Integer.valueOf(cellEditEvent.getNewValue().toString()));
+
+    }
 }
