@@ -1,7 +1,9 @@
 package sample.control;
 
 import javafx.fxml.FXML;
+import javafx.scene.layout.BackgroundRepeat;
 import sample.Browser;
+import sample.model.Control;
 
 public class MenuWindow {
 
@@ -23,5 +25,11 @@ public class MenuWindow {
     @FXML
     private void actionSalesman(){
         Browser.loadWindow(Browser.MENU);
+    }
+
+    @FXML
+    private void actionReport(){
+        Browser.loadWindow(Browser.REPORT);
+
     }
 }

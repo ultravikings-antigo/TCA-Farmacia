@@ -31,7 +31,7 @@ public class MerchandiseRegisterWindow {
 
     @FXML
     private void actionCancel(){
-        Browser.loadWindow(Browser.STORAGE);
+        fecharTelaAction();
     }
 
     @FXML

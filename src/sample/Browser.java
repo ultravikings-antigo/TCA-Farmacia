@@ -19,6 +19,7 @@ public class Browser {
     public static final String SALES = "/view/sales.fxml";
     public static final String STORAGE = "/view/storage.fxml";
     public static final String MERCHANDISE_REGISTER = "/view/merchandiseRegister.fxml";
+    public static final String REPORT = "/view/report.fxml";
 
     private static BaseWindow controller;
 

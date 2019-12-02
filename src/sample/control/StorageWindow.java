@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -20,6 +21,7 @@ import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
 
+import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -53,6 +55,18 @@ public class StorageWindow {
         tcAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
         tbvStorage.setItems(Control.getInstance().merchandiseList());
+    }
+
+    @FXML
+    private void delete(KeyEvent evt){
+        if(evt.getCode() == KeyCode.DELETE){
+
+            try {
+                Control.getInstance().deleteMerchandise(tbvStorage.getSelectionModel().getSelectedItem());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

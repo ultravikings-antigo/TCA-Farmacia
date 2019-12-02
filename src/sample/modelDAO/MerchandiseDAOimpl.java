@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class MerchandiseDAOimpl implements MerchandiseDAO {
 
     private static String LIST = "select * from Merchandise";
+    private static String DELETE = "DELETE FROM Merchandise WHERE Id = ?";
     private static String INSERT = "INSERT INTO Merchandise(Name, Amount, Price) VALUES (?, ?, ?)";
     private static String SEARCHLIST = "SELECT * FROM Merchandise WHERE Name LIKE ?";
     private static String UPDATE = "UPDATE Merchandise SET Name = ?, Price = ?, Amount = ? WHERE Id = ?";
@@ -53,8 +54,15 @@ public class MerchandiseDAOimpl implements MerchandiseDAO {
 
 
     @Override
-    public boolean delete(String name, int id) {
-        return false;
+    public void delete(Merchandise m) throws SQLException{
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(DELETE);
+        stm.setInt(1, m.getId());
+
+        stm.executeUpdate();
+
+        stm.close();
+        con.close();
     }
 
     @Override

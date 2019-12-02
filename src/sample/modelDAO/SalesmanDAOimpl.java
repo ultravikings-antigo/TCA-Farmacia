@@ -2,6 +2,7 @@ package sample.modelDAO;
 
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import sample.model.ConnectionCreator;
+import sample.model.Merchandise;
 import sample.model.Sales;
 import sample.model.Salesman;
 
@@ -13,6 +14,7 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     private static String INSERT = "insert into Salesman(Name,Salary,Address,Telephone,Cpf,Password,Email,Admin)  values(?,?,?,?,?,?,?,?)";
     private static String LOGIN = "select * from Salesman where Name like ? and Password like ?";
     private static String IDSEARCH = "SELECT * FROM Salesman WHERE Id = ?";
+    private static String LIST = "SELECT * FROM Salesman";
 
     @Override
     public Salesman insert(String name, Float salary, String address, String telephone, String cpf,String password , String email, Boolean admin) throws SQLException {
@@ -83,8 +85,36 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     }
 
     @Override
-    public ArrayList<Salesman> list() {
-        return null;
+    public ArrayList<Salesman> list() throws SQLException {
+        ArrayList<Salesman> salesmen = new ArrayList<>();
+
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(LIST);
+
+        ResultSet rs = stm.executeQuery();
+
+
+        while(rs.next()){
+            int id = rs.getInt("Id");
+            String name = rs.getString("Name");
+            float salary = rs.getFloat("Salary");
+            String endereco = rs.getString("Address");
+            String telefone = rs.getString("Telephone");
+            String cpf = rs.getString("Cpf");
+            String password = rs.getString("Password");
+            String email = rs.getString("Email");
+            Boolean admin = rs.getBoolean("Admin");
+
+            Salesman s = new Salesman(id,name,salary,endereco,telefone,cpf,password,email,admin);
+
+            salesmen.add(s);
+        }
+
+        rs.close();
+        stm.close();
+        con.close();
+
+        return salesmen;
     }
 
     @Override

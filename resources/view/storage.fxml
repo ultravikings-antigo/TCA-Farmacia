@@ -46,7 +46,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tbvStorage" editable="true" layoutX="14.0" layoutY="217.0" prefHeight="375.0" prefWidth="1252.0">
+      <TableView fx:id="tbvStorage" editable="true" layoutX="14.0" layoutY="217.0" onKeyPressed="#delete" prefHeight="375.0" prefWidth="1252.0">
          <columns>
             <TableColumn fx:id="tcId" minWidth="100.0" prefWidth="88.0" style="-fx-background-color: #4FA489;" text="ID" />
             <TableColumn fx:id="tcName" minWidth="313.0" onEditCommit="#editCommitName" prefWidth="515.0" style="-fx-background-color: #4FA489;" text="NOME" />

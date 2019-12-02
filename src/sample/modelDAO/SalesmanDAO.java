@@ -12,6 +12,6 @@ public interface SalesmanDAO {
     Salesman update(String name, Float salary, String address, String telephone, String cpf,String passwrod,String email,Boolean admin);
     Salesman login(String name,String password) throws SQLException;
     boolean delete(int id);
-    ArrayList<Salesman> list();
+    ArrayList<Salesman> list() throws SQLException;
     Salesman idSearch (int id) throws SQLException;
 }
