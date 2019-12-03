@@ -3,14 +3,16 @@ package sample.model;
 public class SoldMerchandise {
 
     private int id;
+    private String name;
     private Merchandise merchandise;
     private Sales sales;
     private int amount;
     private Float price;
     private int discount;
 
-    public SoldMerchandise(int id, Merchandise merchandise, Sales sales, int amount, Float price, int discount) {
+    public SoldMerchandise(int id, String name, Merchandise merchandise, Sales sales, int amount, Float price, int discount) {
         this.id = id;
+        this.name = name;
         this.merchandise = merchandise;
         this.sales = sales;
         this.amount = amount;
@@ -18,10 +20,12 @@ public class SoldMerchandise {
         this.discount = discount;
     }
 
-    public SoldMerchandise() {
+    public SoldMerchandise(){
+
     }
 
-    public SoldMerchandise(Merchandise merchandise, Sales sales, int amount, Float price, int discount) {
+    public SoldMerchandise(String name, Merchandise merchandise, Sales sales, int amount, Float price, int discount) {
+        this.name = name;
         this.merchandise = merchandise;
         this.sales = sales;
         this.amount = amount;
@@ -75,5 +79,13 @@ public class SoldMerchandise {
 
     public void setDiscount(int discount) {
         this.discount = discount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

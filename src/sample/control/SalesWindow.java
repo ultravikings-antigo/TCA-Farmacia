@@ -1,5 +1,6 @@
 package sample.control;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -25,8 +26,17 @@ public class SalesWindow {
     @FXML
     private TableView<Merchandise> tbMerchandise;
 
+
+
+
+
     @FXML
     private TableView<SoldMerchandise> tbSales;
+
+
+
+
+
 
     @FXML
     private TableColumn<Merchandise,Integer> tcSalesId;
@@ -40,42 +50,35 @@ public class SalesWindow {
     @FXML
     private TableColumn<Merchandise,Float> tcSalesValue;
 
-    @FXML
-    private TableColumn<SalesWindow,Integer> tcMerchandiseId;
+
+
 
     @FXML
-    private TableColumn<SalesWindow,String> tcMerchandiseName;
+    private TableColumn<SoldMerchandise,Integer> tcMerchandiseId;
 
     @FXML
-    private TableColumn<SalesWindow,Integer> tcMerchandiseStorage;
+    private TableColumn<SoldMerchandise,String> tcMerchandiseName;
 
     @FXML
-    private TableColumn<SalesWindow,Float> tcMerchandiseValue;
+    private TableColumn<SoldMerchandise,Integer> tcMerchandiseStorage;
 
     @FXML
-    private TableColumn<SalesWindow,Integer> tcSalesDiscount;
+    private TableColumn<SoldMerchandise,Float> tcMerchandiseValue;
 
     @FXML
-    private TableColumn<SalesWindow,Float> tcSalesTotalValue;
+    private TableColumn<SoldMerchandise,Integer> tcSalesDiscount;
+
+    @FXML
+    private TableColumn<SoldMerchandise,Float> tcSalesTotalValue;
+
+
+
+
+
 
     private Sales sale;
 
     public void initialize() throws SQLException {
-        tcMerchandiseId.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        tcMerchandiseName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        tcMerchandiseStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
-        tcMerchandiseValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
-
-        tbMerchandise.setItems(Control.getInstance().merchandiseList());
-
-        tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        tcSalesDiscount.setCellValueFactory(new PropertyValueFactory<>("Discount"));
-        tcSalesDiscount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-
-        tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
-        tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
-        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         Salesman logado = Control.getInstance().logado();
         if(logado == null){
@@ -83,6 +86,31 @@ public class SalesWindow {
         }else{
             lbLogado.setText(logado.getName());
         }
+
+        tcMerchandiseId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        tcMerchandiseName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        tcMerchandiseStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        tcMerchandiseValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
+        tbMerchandise.setItems(Control.getInstance().merchandiseList());
+
+
+
+
+
+
+        tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+
+        tcSalesDiscount.setCellValueFactory(new PropertyValueFactory<>("Discount"));
+        tcSalesDiscount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
+        tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+
+        tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+
+        tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
+
+        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
 
         sale = new Sales(null, Control.getInstance().getLogedSalesman(), Date.from(Instant.now()), (float)0.0);
@@ -98,18 +126,19 @@ public class SalesWindow {
     @FXML
     private void actionAddItem(){
         Merchandise m = tbMerchandise.getSelectionModel().getSelectedItem();
+
+        System.out.println(m);
+
         SoldMerchandise soldMerchandise = new SoldMerchandise();
 
-        System.out.println("bbb");
+        soldMerchandise.setName(m.getName());
         soldMerchandise.setAmount(m.getAmount());
         soldMerchandise.setPrice(m.getPrice());
         soldMerchandise.setMerchandise(m);
-        soldMerchandise.setSales(sale);
 
         sale.getMerchandises().add(soldMerchandise);
 
         tbSales.setItems(sale.getMerchandises());
-        System.out.println("aa");
     }
 
     @FXML

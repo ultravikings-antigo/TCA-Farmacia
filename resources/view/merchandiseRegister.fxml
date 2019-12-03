@@ -4,8 +4,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="window" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.MerchandiseRegisterWindow">
@@ -14,14 +12,6 @@
       <JFXTextField fx:id="tfPrice" focusColor="BLACK" layoutX="25.0" layoutY="90.0" prefHeight="30.0" prefWidth="250.0" promptText="Preço" unFocusColor="BLACK" />
       <JFXTextField fx:id="tfAmount" focusColor="BLACK" layoutX="25.0" layoutY="150.0" prefHeight="30.0" prefWidth="250.0" promptText="Quantidade" unFocusColor="BLACK" />
       <JFXButton fx:id="closeWindow" layoutX="172.0" layoutY="233.0" mnemonicParsing="false" onAction="#actionConclude" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Concluir">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#00f38d" />
-                  <Stop color="#009eff" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -30,14 +20,6 @@
          </font>
       </JFXButton>
       <JFXButton layoutX="14.0" layoutY="233.0" mnemonicParsing="false" onAction="#actionCancel" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Cancelar">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#00f38d" />
-                  <Stop color="#009eff" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

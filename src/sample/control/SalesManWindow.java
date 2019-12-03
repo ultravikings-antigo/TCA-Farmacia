@@ -3,6 +3,7 @@ package sample.control;
 import com.itextpdf.layout.element.Table;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,6 +20,9 @@ import java.sql.SQLException;
 import java.time.Instant;
 
 public class SalesManWindow {
+
+    @FXML
+    private Label lbLogado;
 
     @FXML
     private TableView<Salesman> tbSalesman;
@@ -70,13 +74,20 @@ public class SalesManWindow {
         tcSalesmanSalary.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
         tcSalesmanTelephone.setCellFactory(TextFieldTableCell.forTableColumn());
 
+        Salesman logado = Control.getInstance().logado();
+        if(logado == null){
+            lbLogado.setText("Logar");
+        }else{
+            lbLogado.setText(logado.getName());
+        }
+
         tbSalesman.setItems(Control.getInstance().salesmenList());
 
     }
 
     @FXML
     public void actionLogin(){
-
+        Browser.loadWindow(Browser.LOGIN);
     }
 
     @FXML

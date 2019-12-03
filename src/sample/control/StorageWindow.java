@@ -115,6 +115,10 @@ public class StorageWindow {
     private void merchandiseRegister() throws SQLException {
         Browser.loadFreeWindow(Browser.MERCHANDISE_REGISTER);
 
+    }
+
+    @FXML
+    private void actionUpdate() throws SQLException {
         initialize();
     }
 
@@ -133,6 +137,11 @@ public class StorageWindow {
         }catch (SQLException e){
             System.out.printf("Erro ao realizar busca");
         }
+    }
+
+    @FXML
+    public void actionProduct(){
+        Control.getInstance().generateReportMerchandise();
     }
 
     @FXML

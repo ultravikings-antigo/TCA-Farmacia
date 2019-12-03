@@ -48,8 +48,6 @@ public class LoginWindow {
                 Salesman s = Control.getInstance().login(tfUser.getText(), tfPassword.getText());
 
                 if(s != null){
-                    Alert a = new Alert(Alert.AlertType.WARNING, "LOGIN CONCLUIDO", ButtonType.CLOSE);
-                    a.showAndWait();
                     Browser.loadWindow(Browser.MENU);
                 }
                 else{

@@ -24,9 +24,6 @@ public class MerchandiseRegisterWindow {
     private TextField tfAmount;
 
     @FXML
-    private AnchorPane window;
-
-    @FXML
     private Button closeWindow;
 
     @FXML
@@ -50,6 +47,7 @@ public class MerchandiseRegisterWindow {
                 tfName.clear();
                 tfPrice.clear();
                 fecharTelaAction();
+
 
             } catch (SQLException e){
                 Alert a = new Alert(Alert.AlertType.WARNING, "ERRO!", ButtonType.CLOSE);

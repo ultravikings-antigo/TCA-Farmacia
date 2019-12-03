@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8CE8CB;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.ClientWindow">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #4FA489;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#actionLogin" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lbLogado" contentDisplay="RIGHT" layoutX="100.0" layoutY="30.0" onMouseClicked="#actionLogin" text="aaaa" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="100.0" layoutY="60.0" onMouseClicked="#actionClose" text="Sair" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Text layoutX="569.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes">
+               <font>
+                  <Font size="35.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#00f38d" />
+                        <Stop color="#009eff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="1207.0" layoutY="19.0" onMouseClicked="#actionBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/left-arrow.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tbClient" editable="true" layoutX="108.0" layoutY="179.0" prefHeight="437.0" prefWidth="1085.0">
+         <columns>
+            <TableColumn fx:id="tcClientId" minWidth="41.0" prefWidth="41.0" style="-fx-background-color: #4FA489;" text="ID" />
+            <TableColumn fx:id="tcClientName" minWidth="100.0" onEditCommit="#editCommitName" prefWidth="201.0" resizable="false" style="-fx-background-color: #4FA489;" text="NOME" />
+            <TableColumn fx:id="tcClientAddress" minWidth="7.0" onEditCommit="#editCommitAddress" prefWidth="202.0" style="-fx-background-color: #4FA489;" text="ENDEREÇO" />
+            <TableColumn fx:id="tcClientTelephone" minWidth="62.0" onEditCommit="#editCommitTelephone" prefWidth="151.0" style="-fx-background-color: #4FA489;" text="TELEFONE" />
+            <TableColumn fx:id="tcClientCPF" minWidth="38.0" onEditCommit="#editCommitCpf" prefWidth="183.0" style="-fx-background-color: #4FA489;" text="CPF" />
+            <TableColumn fx:id="tcClientEmail" minWidth="38.0" onEditCommit="#editCommitEmail" prefWidth="306.0" style="-fx-background-color: #4FA489;" text="EMAIL" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="528.0" layoutY="638.0" mnemonicParsing="false" onAction="#clientRegister" prefHeight="68.0" prefWidth="245.0" stylesheets="@../css/Stylesheets.css" text="Cadastrar Cliente">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00f38d" />
+                  <Stop color="#009eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

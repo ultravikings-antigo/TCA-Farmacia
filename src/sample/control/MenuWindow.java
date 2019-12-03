@@ -1,6 +1,8 @@
 package sample.control;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BackgroundRepeat;
 import sample.Browser;
@@ -45,15 +47,19 @@ public class MenuWindow {
     }
 
     @FXML
+    private void actionClient(){
+        Browser.loadWindow(Browser.CLIENT);
+    }
+
+    @FXML
     private void actionSalesman(){
         Salesman s = Control.getInstance().logado();
-        System.out.println(s.getAdmin());
-        boolean b = s.getAdmin();
-        if(!b){
-            System.out.println("Você Precisa ser um Adm para entrar aq");
+
+        if (s == null || !s.getAdmin()){
+            Alert a = new Alert(Alert.AlertType.WARNING, "Apenas Administradores Podem Entrar Aqui", ButtonType.CLOSE);
+            a.showAndWait();
         }else{
             Browser.loadWindow(Browser.SALESMAN);
-
         }
     }
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ClientDAOimpl implements ClientDAO{
 
     private static String INSERT = "INSERT INTO Client(Name,Address,Cpf,Telephone,Email) VALUES (?,?,?,?,?)";
-    private static String UPDATE = "UPDATE Client ";
+    private static String UPDATE = "UPDATE Client SET Name = ? , Address = ?, Cpf = ?, Telephone = ?, Email = ? WHERE Id = ?";
     private static String DELETE = "DELETE * FROM Client WHERE Id = ?";
     private static String LIST = "SELECT * FROM Client";
     private static String IDSEARCH = "SELECT * FROM Client WHERE Id = ?";
@@ -30,7 +30,7 @@ public class ClientDAOimpl implements ClientDAO{
         stm.setString(4, c.getTelephone());
         stm.setString(5, c.getEmail());
 
-        stm.executeQuery();
+        stm.execute();
 
         stm.close();
         con.close();
@@ -38,8 +38,21 @@ public class ClientDAOimpl implements ClientDAO{
     }
 
     @Override
-    public Client update(String name, String address, String cpf, String telephone, String email) {
-        return null;
+    public void update(Client c) throws SQLException {
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(UPDATE);
+
+        stm.setString(1, c.getName());
+        stm.setString(2, c.getAddress());
+        stm.setString(3, c.getCpf());
+        stm.setString(4, c.getTelephone());
+        stm.setString(5, c.getEmail());
+        stm.setInt(6,c.getId());
+
+        stm.executeUpdate();
+
+        con.close();
+        stm.close();
     }
 
     @Override
@@ -54,9 +67,10 @@ public class ClientDAOimpl implements ClientDAO{
         Connection con = ConnectionCreator.getConnection();
         PreparedStatement stm = con.prepareStatement(LIST);
         ResultSet res = stm.executeQuery();
-        Client c = new Client();
+
 
         while (res.next()){
+            Client c = new Client();
             c.setId(res.getInt("Id"));
             c.setName(res.getString("Name"));
             c.setAddress(res.getString("Address"));

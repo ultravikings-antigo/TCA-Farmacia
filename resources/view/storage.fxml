@@ -73,7 +73,23 @@
             <Font size="24.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="1066.0" layoutY="620.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Gerar Relatorio">
+      <JFXButton layoutX="1066.0" layoutY="620.0" mnemonicParsing="false" onAction="#actionProduct" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Gerar Relatorio">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#00f38d" />
+                  <Stop color="#009eff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="605.0" layoutY="619.0" mnemonicParsing="false" onAction="#actionUpdate" prefHeight="70.0" prefWidth="70.0" stylesheets="@../css/Stylesheets.css" text=" ">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -105,5 +121,13 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="605.0" layoutY="619.0" onMouseClicked="#actionUpdate" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/update.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>
