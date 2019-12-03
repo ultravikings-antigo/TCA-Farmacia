@@ -61,6 +61,15 @@ public class Control {
         return LogedSalesman;
     }
 
+    public Salesman logado() {
+
+        return LogedSalesman;
+    }
+
+    public void deslogar(){
+        LogedSalesman = null;
+    }
+
     public Salesman getLogedSalesman() {
         return LogedSalesman;
     }
@@ -165,6 +174,10 @@ public class Control {
     public void updateMerchandise(Merchandise m) throws SQLException{
         merchandiseDAO.update(m);
 
+    }
+
+    public void updateSalesman(Salesman s) throws SQLException{
+        salesmanDAO.update(s);
     }
 
     public void updateSoldMerchandise(SoldMerchandise s) throws SQLException{
@@ -357,7 +370,7 @@ public class Control {
     }
 
     private Table criaTableSalesman() throws IOException {
-        Table table = new Table(UnitValue.createPercentArray(new float[]{5, 15, 15, 10,15,10}))
+        Table table = new Table(UnitValue.createPercentArray(new float[]{3, 27, 30, 15,15,10}))
                 .useAllAvailableWidth();
 
 

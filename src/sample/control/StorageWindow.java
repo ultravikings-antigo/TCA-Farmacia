@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,6 +21,7 @@ import javafx.util.converter.IntegerStringConverter;
 import sample.Browser;
 import sample.model.Control;
 import sample.model.Merchandise;
+import sample.model.Salesman;
 
 import java.awt.*;
 import java.io.IOException;
@@ -42,6 +44,9 @@ public class StorageWindow {
     @FXML
     private TableColumn<Merchandise, Float> tcPrice;
 
+    @FXML
+    private Label lbLogado;
+
     private Parent content;
 
     public void initialize() throws SQLException {
@@ -53,6 +58,13 @@ public class StorageWindow {
         tcName.setCellFactory(TextFieldTableCell.forTableColumn());
         tcPrice.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
         tcAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
+        Salesman logado = Control.getInstance().logado();
+        if(logado == null){
+            lbLogado.setText("Logar");
+        }else{
+            lbLogado.setText(logado.getName());
+        }
 
         tbvStorage.setItems(Control.getInstance().merchandiseList());
     }

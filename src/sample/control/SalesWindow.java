@@ -1,6 +1,7 @@
 package sample.control;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -17,6 +18,9 @@ import java.time.Instant;
 import java.util.ArrayList;
 
 public class SalesWindow {
+
+    @FXML
+    private Label lbLogado;
 
     @FXML
     private TableView<Merchandise> tbMerchandise;
@@ -72,6 +76,13 @@ public class SalesWindow {
         tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
         tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
+        Salesman logado = Control.getInstance().logado();
+        if(logado == null){
+            lbLogado.setText("Logar");
+        }else{
+            lbLogado.setText(logado.getName());
+        }
 
 
         sale = new Sales(null, Control.getInstance().getLogedSalesman(), Date.from(Instant.now()), (float)0.0);

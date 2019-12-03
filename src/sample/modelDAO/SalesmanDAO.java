@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface SalesmanDAO {
 
     Salesman insert (String name, Float salary, String address, String telephone, String cpf,String password,String email, Boolean admin) throws SQLException;
-    Salesman update(String name, Float salary, String address, String telephone, String cpf,String passwrod,String email,Boolean admin);
+    Salesman update(Salesman s) throws SQLException;
     Salesman login(String name,String password) throws SQLException;
     boolean delete(int id);
     ArrayList<Salesman> list() throws SQLException;

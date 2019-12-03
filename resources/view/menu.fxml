@@ -80,12 +80,12 @@
       </JFXButton>
       <Pane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #4FA489;">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="1186.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#actionLogin" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/user.png" />
                </image>
             </ImageView>
-            <Label layoutX="1072.0" layoutY="41.0" onMouseClicked="#actionLogin" text="Não Logado" textFill="WHITE">
+            <Label fx:id="lbLogado" contentDisplay="RIGHT" layoutX="100.0" layoutY="30.0" onMouseClicked="#actionLogin" text="aaaa" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -93,7 +93,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label layoutX="1131.0" layoutY="62.0" text="Sair" textFill="WHITE">
+            <Label layoutX="100.0" layoutY="60.0" onMouseClicked="#actionClose" text="Sair" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -101,7 +101,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Text layoutX="553.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drugstore">
+            <Text layoutX="552.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drugstore">
                <font>
                   <Font size="35.0" />
                </font>

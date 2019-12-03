@@ -15,6 +15,7 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     private static String LOGIN = "select * from Salesman where Name like ? and Password like ?";
     private static String IDSEARCH = "SELECT * FROM Salesman WHERE Id = ?";
     private static String LIST = "SELECT * FROM Salesman";
+    private static String UPDATE = "UPDATE Salesman SET Name = ? , Salary = ? , Address = ?, Telephone = ?, Cpf = ?, Password = ?, Email = ?, Admin = ? WHERE Id = ?";
 
     @Override
     public Salesman insert(String name, Float salary, String address, String telephone, String cpf,String password , String email, Boolean admin) throws SQLException {
@@ -43,7 +44,27 @@ public class SalesmanDAOimpl implements SalesmanDAO {
     }
 
     @Override
-    public Salesman update(String name, Float salary, String address, String telephone, String cpf,String password ,String email, Boolean admin) {
+    public Salesman update(Salesman s) throws SQLException {
+
+        Connection con = ConnectionCreator.getConnection();
+        PreparedStatement stm = con.prepareStatement(UPDATE);
+
+        //stm.setInt(1,s.getId());
+        stm.setString(1, s.getName());
+        stm.setFloat(2,s.getSalary());
+        stm.setString(3,s.getAddress());
+        stm.setString(4,s.getTelephone());
+        stm.setString(5,s.getCpf());
+        stm.setString(6,s.getPassword());
+        stm.setString(7,s.getEmail());
+        stm.setBoolean(8,s.getAdmin());
+        stm.setInt(9,s.getId());
+
+        stm.executeUpdate();
+
+        con.close();
+        stm.close();
+
         return null;
     }
 
