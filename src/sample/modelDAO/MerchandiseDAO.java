@@ -10,7 +10,9 @@ public interface MerchandiseDAO {
 
     Merchandise insert (String name, int amount,Float price) throws SQLException;
     void update(Merchandise m) throws SQLException;
+    void updateStorage(int id, int amount) throws SQLException;
     void delete(Merchandise m) throws SQLException;
     ArrayList<Merchandise> list() throws SQLException;
     ArrayList<Merchandise> searchList(String text) throws SQLException;
+
 }

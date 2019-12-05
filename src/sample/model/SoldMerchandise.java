@@ -4,33 +4,37 @@ public class SoldMerchandise {
 
     private int id;
     private String name;
-    private Merchandise merchandise;
-    private Sales sales;
     private int amount;
     private Float price;
     private int discount;
+    private Float totalPrice;
 
-    public SoldMerchandise(int id, String name, Merchandise merchandise, Sales sales, int amount, Float price, int discount) {
+    public SoldMerchandise(int id, String name, int amount, Float price, int discount, Float totalPrice) {
         this.id = id;
         this.name = name;
-        this.merchandise = merchandise;
-        this.sales = sales;
         this.amount = amount;
         this.price = price;
         this.discount = discount;
+        this.totalPrice = totalPrice;
     }
 
-    public SoldMerchandise(){
-
-    }
-
-    public SoldMerchandise(String name, Merchandise merchandise, Sales sales, int amount, Float price, int discount) {
+    public SoldMerchandise(String name, int amount, Float price, int discount, Float totalPrice) {
         this.name = name;
-        this.merchandise = merchandise;
-        this.sales = sales;
         this.amount = amount;
         this.price = price;
         this.discount = discount;
+        this.totalPrice = totalPrice;
+    }
+
+    public SoldMerchandise() {
+    }
+
+    public Float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public int getId() {
@@ -39,22 +43,6 @@ public class SoldMerchandise {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Merchandise getMerchandise() {
-        return merchandise;
-    }
-
-    public void setMerchandise(Merchandise merchandise) {
-        this.merchandise = merchandise;
-    }
-
-    public Sales getSales() {
-        return sales;
-    }
-
-    public void setSales(Sales sales) {
-        this.sales = sales;
     }
 
     public int getAmount() {
@@ -87,5 +75,17 @@ public class SoldMerchandise {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "SoldMerchandise{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", totalPrice=" + totalPrice +
+                '}';
     }
 }

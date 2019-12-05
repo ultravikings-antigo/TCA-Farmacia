@@ -66,7 +66,7 @@
          <font>
             <Font size="24.0" />
          </font></JFXTextField>
-      <JFXButton layoutX="1059.0" layoutY="638.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Finalizar">
+      <JFXButton layoutX="1059.0" layoutY="638.0" mnemonicParsing="false" onAction="#finalizeSale" prefHeight="68.0" prefWidth="200.0" stylesheets="@../css/Stylesheets.css" text="Finalizar">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -82,22 +82,21 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tbMerchandise" layoutX="14.0" layoutY="197.0" prefHeight="421.0" prefWidth="452.0">
+      <TableView fx:id="tbvMerchandise" layoutX="24.0" layoutY="197.0" prefHeight="420.0" prefWidth="450.0">
         <columns>
           <TableColumn fx:id="tcMerchandiseId" minWidth="50.0" prefWidth="10.0" style="-fx-background-color: #4FA489;" text="ID" />
           <TableColumn fx:id="tcMerchandiseName" minWidth="100.0" prefWidth="200.0" resizable="false" style="-fx-background-color: #4FA489;" text="NOME" />
-            <TableColumn fx:id="tcMerchandiseStorage" minWidth="38.0" prefWidth="100.0" style="-fx-background-color: #4FA489;" text="ESTOQUE" />
-            <TableColumn fx:id="tcMerchandiseValue" minWidth="100.0" prefWidth="100.0" style="-fx-background-color: #4FA489;" text="VALOR" />
+            <TableColumn fx:id="tcMerchandiseStorage" minWidth="50.0" prefWidth="100.0" style="-fx-background-color: #4FA489;" text="ESTOQUE" />
+            <TableColumn fx:id="tcMerchandisePrice" minWidth="90.0" prefWidth="100.0" style="-fx-background-color: #4FA489;" text="VALOR" />
         </columns>
       </TableView>
-      <TableView fx:id="tbSales" editable="true" layoutX="599.0" layoutY="197.0" prefHeight="421.0" prefWidth="667.0">
+      <TableView fx:id="tbvSales" editable="true" layoutX="599.0" layoutY="197.0" prefHeight="420.0" prefWidth="660.0">
          <columns>
-            <TableColumn fx:id="tcSalesId" minWidth="50.0" prefWidth="10.0" style="-fx-background-color: #4FA489;" text="ID" />
-            <TableColumn fx:id="tcSalesName" minWidth="100.0" prefWidth="200.0" resizable="false" style="-fx-background-color: #4FA489;" text="NOME" />
-            <TableColumn fx:id="tcSalesStorage" minWidth="38.0" prefWidth="79.0" style="-fx-background-color: #4FA489;" text="ESTOQUE" />
-            <TableColumn fx:id="tcSalesValue" minWidth="98.0" prefWidth="108.0" style="-fx-background-color: #4FA489;" text="VALOR" />
-            <TableColumn fx:id="tcSalesDiscount" minWidth="62.0" onEditCommit="#ecDesconto" prefWidth="99.0" style="-fx-background-color: #4FA489;" text="DESCONTO" />
-            <TableColumn fx:id="tcSalesTotalValue" minWidth="38.0" prefWidth="134.0" style="-fx-background-color: #4FA489;" text="VALOR TOTAL" />
+            <TableColumn fx:id="tcSalesName" minWidth="50.0" prefWidth="132.0" style="-fx-background-color: #4FA489;" text="NOME" />
+            <TableColumn fx:id="tcSalesAmount" minWidth="62.0" prefWidth="132.0" resizable="false" style="-fx-background-color: #4FA489;" text="QUANTIDADE" />
+            <TableColumn fx:id="tcSalesPrice" minWidth="38.0" prefWidth="132.0" style="-fx-background-color: #4FA489;" text="PREÇO" />
+            <TableColumn fx:id="tcSalesDiscount" minWidth="80.0" prefWidth="132.0" style="-fx-background-color: #4FA489;" text="DESCONTO" />
+            <TableColumn fx:id="tcSalesTotalPrice" minWidth="98.0" prefWidth="132.0" style="-fx-background-color: #4FA489;" text="VALOR TOTAL" />
          </columns>
       </TableView>
       <ImageView fitHeight="68.0" fitWidth="51.0" layoutX="507.0" layoutY="370.0" onMouseClicked="#actionAddItem" pickOnBounds="true" preserveRatio="true">

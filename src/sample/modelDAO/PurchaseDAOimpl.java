@@ -66,6 +66,10 @@ public class PurchaseDAOimpl implements PurchaseDAO {
             purchases.add(p);
         }
 
+
+        res.close();
+        stm.close();
+        con.close();
         return purchases;
     }
 }

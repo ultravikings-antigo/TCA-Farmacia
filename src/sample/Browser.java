@@ -23,6 +23,10 @@ public class Browser {
     public static final String SALESMAN = "/view/salesman.fxml";
     public static final String CLIENT = "/view/client.fxml";
     public static final String CLIENT_REGISTER = "/view/clientRegister.fxml";
+    public static final String SALE_ADD_ITEM = "/view/saleAddItem.fxml";
+    public static final String FINALIZE = "/view/finalizeSale.fxml";
+
+
 
     private static BaseWindow controller;
 

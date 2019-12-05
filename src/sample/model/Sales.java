@@ -13,23 +13,30 @@ public class Sales {
     private Client client;
     private Salesman salesman;
     private Date date;
-    private ObservableList<SoldMerchandise> merchandises;
+    private ObservableList<SoldMerchandise> soldMerchandises = FXCollections.observableArrayList();
     private Float totalValue;
 
+    public Sales(int id, Client client, Salesman salesman, Date date, ObservableList<SoldMerchandise> soldMerchandises, Float totalValue) {
+        this.id = id;
+        this.client = client;
+        this.salesman = salesman;
+        this.date = date;
+        this.soldMerchandises = soldMerchandises;
+        this.totalValue = totalValue;
+    }
+
+    public Sales(Client client, Salesman salesman, Date date, ObservableList<SoldMerchandise> soldMerchandises, Float totalValue) {
+        this.client = client;
+        this.salesman = salesman;
+        this.date = date;
+        this.soldMerchandises = soldMerchandises;
+        this.totalValue = totalValue;
+    }
 
     public Sales(Client client, Salesman salesman, Date date, Float totalValue) {
         this.client = client;
         this.salesman = salesman;
         this.date = date;
-        this.merchandises = FXCollections.observableArrayList();
-        this.totalValue = totalValue;
-    }
-
-    public Sales(Client client, Salesman salesman, Date date, ObservableList<SoldMerchandise> merchandises, Float totalValue) {
-        this.client = client;
-        this.salesman = salesman;
-        this.date = date;
-        this.merchandises = merchandises;
         this.totalValue = totalValue;
     }
 
@@ -77,17 +84,18 @@ public class Sales {
         this.totalValue = totalValue;
     }
 
-    public ObservableList<SoldMerchandise> getMerchandises() {
-        return merchandises;
+    public ObservableList<SoldMerchandise> getSoldMerchandises() {
+        return soldMerchandises;
     }
 
     @Override
     public String toString() {
-        return "SalesWindow{" +
+        return "Sales{" +
                 "id=" + id +
                 ", client=" + client +
                 ", salesman=" + salesman +
                 ", date=" + date +
+                ", soldMerchandises=" + soldMerchandises +
                 ", totalValue=" + totalValue +
                 '}';
     }

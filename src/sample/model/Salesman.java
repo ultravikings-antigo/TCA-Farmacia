@@ -113,16 +113,6 @@ public class Salesman {
 
     @Override
     public String toString() {
-        return "Salesman{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", address='" + address + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", admin=" + admin +
-                '}';
+        return name;
     }
 }

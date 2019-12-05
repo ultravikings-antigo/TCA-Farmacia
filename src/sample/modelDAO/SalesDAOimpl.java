@@ -1,24 +1,30 @@
 package sample.modelDAO;
 
+import javafx.collections.ObservableList;
 import sample.model.*;
 
 import java.sql.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class SalesDAOimpl implements SalesDAO{
 
-    private static String INSERT = "insert into SalesWindow(Client_Id,Salesman_Id,Date, Total_Value) values";
+    private static String INSERT = "insert into Sales(Client_Id, Salesman_Id, Date, Total_Value) values (?, ?, ?, ?);";
     private static String LIST = "SELECT (*) FROM SalesWindow;";
     private static String SEARCHLIST = "SELECT * FROM SalesWindow WHERE Date BETWEEN ? and ?";
 
 
     ClientDAO clientDAO = new ClientDAOimpl();
     SalesmanDAO salesmanDAO = new SalesmanDAOimpl();
+    SoldMerchandiseDAO soldMerchandiseDAO = new SoldMerchandiseDAOimpl();
 
     @Override
-    public Sales insert(Client client, Salesman salesman, Date date, Float totalValue) throws SQLException {
-        Sales s = new Sales(client,salesman, date, totalValue);
+    public Sales insert(Client client, Salesman salesman, Date date, Float totalValue, ObservableList<SoldMerchandise> soldMerchandises) throws SQLException {
+        Sales s = new Sales(client, salesman, date, totalValue);
+        int lastId = 0;
 
         Connection con = ConnectionCreator.getConnection();
 
@@ -26,15 +32,30 @@ public class SalesDAOimpl implements SalesDAO{
                 .prepareStatement(INSERT);
 
         stm.setInt(1,s.getClient().getId());
-        stm.setFloat(2,s.getSalesman().getId());
-        stm.setDate(3, java.sql.Date.valueOf(String.valueOf(s.getDate())));
+        stm.setInt(2,s.getSalesman().getId());
+        stm.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
         stm.setFloat(4,s.getTotalValue());
 
         stm.executeUpdate();
 
+        stm = con.prepareStatement("SELECT Id FROM Sales ORDER BY Id DESC LIMIT 1;");
+        ResultSet rs = stm.executeQuery();
+        while (rs.next())
+        lastId = rs.getInt("Id");
+
+
+        try {
+            for(SoldMerchandise sm: soldMerchandises){
+                soldMerchandiseDAO.insert(sm, lastId);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
         stm.close();
         con.close();
-
+        rs.close();
         return s;
     }
 
@@ -68,7 +89,12 @@ public class SalesDAOimpl implements SalesDAO{
             sales.add(s);
         }
 
+        con.close();
+        res.close();
+        stm.close();
+
         return sales;
+
     }
 
     @Override

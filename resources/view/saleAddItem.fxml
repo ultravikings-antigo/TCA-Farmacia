@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="window" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: #8CE8CB;"
+            xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.control.SaleAddItemWindow">
+   <children>
+      <JFXTextField fx:id="tfAmount" focusColor="BLACK" layoutX="25.0" layoutY="57.0" prefHeight="30.0" prefWidth="250.0" promptText="Quantidade" unFocusColor="BLACK" />
+      <JFXButton fx:id="closeWindow" layoutX="172.0" layoutY="233.0" mnemonicParsing="false" onAction="#actionConclude" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Concluir">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="14.0" layoutY="233.0" mnemonicParsing="false" onAction="#actionCancel" prefHeight="43.0" prefWidth="114.0" style="-fx-background-color: #ffffff;" stylesheets="@../css/Stylesheets.css" text="Cancelar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="tfDiscount" focusColor="BLACK" layoutX="25.0" layoutY="135.0" prefHeight="30.0" prefWidth="250.0" promptText="Desconto" unFocusColor="BLACK" />
+   </children>
+</AnchorPane>

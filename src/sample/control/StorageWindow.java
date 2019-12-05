@@ -47,8 +47,6 @@ public class StorageWindow {
     @FXML
     private Label lbLogado;
 
-    private Parent content;
-
     public void initialize() throws SQLException {
         tcId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));

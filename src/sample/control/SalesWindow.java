@@ -1,6 +1,8 @@
 package sample.control;
 
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -16,70 +18,49 @@ import sample.model.*;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.Instant;
-import java.util.ArrayList;
 
 public class SalesWindow {
 
     @FXML
     private Label lbLogado;
 
+
+    ///TABLE SALES
     @FXML
-    private TableView<Merchandise> tbMerchandise;
-
-
-
-
+    private TableView<SoldMerchandise> tbvSales;
 
     @FXML
-    private TableView<SoldMerchandise> tbSales;
-
-
-
-
-
+    private TableColumn<SoldMerchandise, String> tcSalesName;
 
     @FXML
-    private TableColumn<Merchandise,Integer> tcSalesId;
+    private TableColumn<SoldMerchandise, Integer> tcSalesAmount;
 
     @FXML
-    private TableColumn<Merchandise,String> tcSalesName;
+    private TableColumn<SoldMerchandise, Integer> tcSalesDiscount;
 
     @FXML
-    private TableColumn<Merchandise,Integer> tcSalesStorage;
+    private TableColumn<SoldMerchandise, Float> tcSalesTotalPrice;
 
     @FXML
-    private TableColumn<Merchandise,Float> tcSalesValue;
+    private TableColumn<SoldMerchandise, Float> tcSalesPrice;
 
-
-
+    ///TABLE MERCHANDISE
+    @FXML
+    private TableView<Merchandise> tbvMerchandise;
 
     @FXML
-    private TableColumn<SoldMerchandise,Integer> tcMerchandiseId;
+    private TableColumn<Merchandise, Integer> tcMerchandiseId;
 
     @FXML
-    private TableColumn<SoldMerchandise,String> tcMerchandiseName;
+    private TableColumn<Merchandise, String> tcMerchandiseName;
 
     @FXML
-    private TableColumn<SoldMerchandise,Integer> tcMerchandiseStorage;
+    private TableColumn<Merchandise, Float> tcMerchandisePrice;
 
     @FXML
-    private TableColumn<SoldMerchandise,Float> tcMerchandiseValue;
-
-    @FXML
-    private TableColumn<SoldMerchandise,Integer> tcSalesDiscount;
-
-    @FXML
-    private TableColumn<SoldMerchandise,Float> tcSalesTotalValue;
-
-
-
-
-
-
-    private Sales sale;
+    private TableColumn<Merchandise, Integer> tcMerchandiseStorage;
 
     public void initialize() throws SQLException {
-
         Salesman logado = Control.getInstance().logado();
         if(logado == null){
             lbLogado.setText("Logar");
@@ -87,35 +68,52 @@ public class SalesWindow {
             lbLogado.setText(logado.getName());
         }
 
+        ///TABLE MERCHANDISE
         tcMerchandiseId.setCellValueFactory(new PropertyValueFactory<>("Id"));
         tcMerchandiseName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcMerchandiseStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
-        tcMerchandiseValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
-
-        tbMerchandise.setItems(Control.getInstance().merchandiseList());
-
+        tcMerchandisePrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        tbvMerchandise.setItems(Control.getInstance().merchandiseList());
 
 
-
-
-
-        tcSalesId.setCellValueFactory(new PropertyValueFactory<>("Id"));
-
+        ///TABLE SALES
+        tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         tcSalesDiscount.setCellValueFactory(new PropertyValueFactory<>("Discount"));
+        tcSalesAmount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        tcSalesPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        tcSalesTotalPrice.setCellValueFactory(new PropertyValueFactory<>("TotalPrice"));
+
+        tcSalesAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         tcSalesDiscount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
-        tcSalesName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        ///INITIALIZING A NEW SALE
+        Control.getInstance().getSale().setClient(new Client());
 
-        tcSalesStorage.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        if(Control.getInstance().getLogedSalesman() != null){
+            Control.getInstance().getSale().setSalesman(Control.getInstance().getLogedSalesman());
+        }
+        else {
+            Control.getInstance().getSale().setSalesman(new Salesman());
+        }
 
-        tcSalesTotalValue.setCellValueFactory(new PropertyValueFactory<>("Total_Value"));
+        Control.getInstance().getSale().setDate(Date.from(Instant.now()));
+        Control.getInstance().getSale().setTotalValue((float)0.0);
 
-        tcSalesValue.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        tbvMerchandise.setItems(Control.getInstance().merchandiseList());
+        tbvSales.setItems(Control.getInstance().getSale().getSoldMerchandises());
 
-
-        sale = new Sales(null, Control.getInstance().getLogedSalesman(), Date.from(Instant.now()), (float)0.0);
-
-        tbSales.setItems(sale.getMerchandises());
+        Control.getInstance().getSale().getSoldMerchandises().addListener(new ListChangeListener<SoldMerchandise>() {
+            @Override
+            public void onChanged(Change<? extends SoldMerchandise> c){
+                try {
+                    if(!Control.getInstance().getSale().getSoldMerchandises().isEmpty()){
+                        Control.getInstance().updateMerchandiseStorage(tbvMerchandise.getSelectionModel().getSelectedItem().getId(), Control.getInstance().getSoldMerchandise().getAmount());
+                    }
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @FXML
@@ -125,20 +123,14 @@ public class SalesWindow {
 
     @FXML
     private void actionAddItem(){
-        Merchandise m = tbMerchandise.getSelectionModel().getSelectedItem();
-
-        System.out.println(m);
-
         SoldMerchandise soldMerchandise = new SoldMerchandise();
+        soldMerchandise.setPrice(tbvMerchandise.getSelectionModel().getSelectedItem().getPrice());
+        soldMerchandise.setName(tbvMerchandise.getSelectionModel().getSelectedItem().getName());
 
-        soldMerchandise.setName(m.getName());
-        soldMerchandise.setAmount(m.getAmount());
-        soldMerchandise.setPrice(m.getPrice());
-        soldMerchandise.setMerchandise(m);
+        Control.getInstance().atualizeSoldMerchandise(soldMerchandise);
 
-        sale.getMerchandises().add(soldMerchandise);
+        Browser.loadFreeWindow(Browser.SALE_ADD_ITEM);
 
-        tbSales.setItems(sale.getMerchandises());
     }
 
     @FXML
@@ -160,16 +152,16 @@ public class SalesWindow {
     }
 
     @FXML
-    public void actionBack()
-    {
-        Browser.loadWindow(Browser.MENU);
+    private void finalizeSale()throws SQLException{
 
+        if(!Control.getInstance().getSale().getSoldMerchandises().isEmpty()){
+            Browser.loadFreeWindow(Browser.FINALIZE);
+        }
     }
 
     @FXML
-    private void ecDesconto(TableColumn.CellEditEvent cellEditEvent) throws SQLException{
-        SoldMerchandise s = tbSales.getSelectionModel().getSelectedItem();
-        s.setAmount(Integer.valueOf(cellEditEvent.getNewValue().toString()));
-
+    private void actionBack()
+    {
+        Browser.loadWindow(Browser.MENU);
     }
 }

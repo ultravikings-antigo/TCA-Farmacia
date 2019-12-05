@@ -65,6 +65,10 @@ public class ProviderDAOimpl implements ProviderDAO {
 
         }
 
+        con.close();
+        res.close();
+        stm.close();
+
         return p;
     }
 }

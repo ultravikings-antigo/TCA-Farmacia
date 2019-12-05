@@ -13,7 +13,10 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import sample.control.SalesWindow;
@@ -41,6 +44,10 @@ public class Control {
     private ObservableList<Salesman> salesman;
     private Salesman LogedSalesman;
 
+    ///SALE VARIABLES
+    private Sales sale;
+    private SoldMerchandise soldMerchandise;
+
     private Control(){
         clients = FXCollections.observableArrayList();
         merchandises = FXCollections.observableArrayList();
@@ -48,6 +55,8 @@ public class Control {
         purchases = FXCollections.observableArrayList();
         sales = FXCollections.observableArrayList();
         salesman = FXCollections.observableArrayList();
+        sale = new Sales();
+        soldMerchandise = new SoldMerchandise();
     }
 
     private static Control instance = new Control();
@@ -142,11 +151,8 @@ public class Control {
     }
 
     public ObservableList<Merchandise> merchandiseList() throws SQLException {
-
         merchandises.clear();
-
         merchandises.addAll(merchandiseDAO.list());
-
 
         return merchandises;
     }
@@ -423,5 +429,39 @@ public class Control {
         table.setFontSize(12);
 
         return table;
+    }
+
+
+
+    ///ADD NEW ITEM TO A SALE
+    public void atualizeSoldMerchandise(SoldMerchandise soldMerchandise) {
+        this.soldMerchandise = soldMerchandise;
+    }
+
+    public void addSoldMerchandise(){
+        sale.getSoldMerchandises().add(this.soldMerchandise);
+        sale.setTotalValue(sale.getTotalValue() + soldMerchandise.getTotalPrice());
+    }
+
+    public SoldMerchandise getSoldMerchandise() {
+        return soldMerchandise;
+    }
+
+    public Sales getSale() {
+        return sale;
+    }
+
+    public void updateMerchandiseStorage(int id, int amount) throws SQLException{
+        System.out.println("AAA");
+        merchandiseDAO.updateStorage(id, amount);
+        merchandiseList();
+    }
+
+    public void finalizeSale() throws SQLException{
+        salesDAO.insert(sale.getClient(), sale.getSalesman(), sale.getDate(), sale.getTotalValue(), sale.getSoldMerchandises());
+        sale.getSoldMerchandises().clear();
+        sale.setClient(new Client());
+        sale.setSalesman(new Salesman());
+        sale.setTotalValue((float)0.0);
     }
 }

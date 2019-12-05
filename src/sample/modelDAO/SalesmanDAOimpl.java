@@ -159,6 +159,10 @@ public class SalesmanDAOimpl implements SalesmanDAO {
             s.setAdmin(res.getBoolean("Admin"));
         }
 
+        stm.close();
+        res.close();
+        con.close();
+
         return s;
     }
 }

@@ -81,6 +81,10 @@ public class ClientDAOimpl implements ClientDAO{
             clients.add(c);
         }
 
+        stm.close();
+        res.close();
+        con.close();
+
         return clients;
     }
 
@@ -103,6 +107,9 @@ public class ClientDAOimpl implements ClientDAO{
             c.setTelephone(res.getString("Telephone"));
         }
 
+        stm.close();
+        res.close();
+        con.close();
         return c;
     }
 }
