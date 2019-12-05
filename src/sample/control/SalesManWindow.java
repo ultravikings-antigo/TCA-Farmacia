@@ -126,6 +126,11 @@ public class SalesManWindow {
     }
 
     @FXML
+    private void salesmanRegister(){
+        Browser.loadWindow(Browser.REGISTER);
+    }
+
+    @FXML
     private void editCommitPassword(TableColumn.CellEditEvent cellEditEvent) throws SQLException{
         Salesman s = tbSalesman.getSelectionModel().getSelectedItem();
         s.setPassword(cellEditEvent.getNewValue().toString());

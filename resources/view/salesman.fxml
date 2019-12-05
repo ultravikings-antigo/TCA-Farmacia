@@ -88,7 +88,7 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="14.0" layoutY="638.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="257.0" stylesheets="@../css/Stylesheets.css" text="Cadastrar Funcionario">
+      <JFXButton layoutX="14.0" layoutY="638.0" mnemonicParsing="false" onAction="#salesmanRegister" prefHeight="68.0" prefWidth="257.0" stylesheets="@../css/Stylesheets.css" text="Cadastrar Funcionario">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
